@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Course : MonoBehaviour {
+public class Course {
 	string title;
 	int credits;
 	double grade;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 
-public class Assignment : MonoBehaviour {
+public class Assignment {
 	public string title;
 	public double weight;
 	public double score;

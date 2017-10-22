@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CourseList : MonoBehaviour {
+public class CourseList {
 	public Course[] courses;
 
 	public CourseList() {

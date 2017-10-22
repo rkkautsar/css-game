@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Exam : MonoBehaviour {
+public class Exam {
 	public string title;
 	public double weight;
 	public double score;
@@ -12,10 +12,9 @@ public class Exam : MonoBehaviour {
 	public double progress;
 
 	public Exam(string title, double weight, DateTime startDatetime, DateTime endDateTime) {
-		this.name = name;
+		this.title = title;
 		this.weight = weight;
 		this.startDatetime = startDatetime;
-		this.title = title;
 	}
 
 	// Use this for initialization
