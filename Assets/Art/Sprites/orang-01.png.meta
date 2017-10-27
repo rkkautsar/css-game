@@ -1,0 +1,394 @@
+fileFormatVersion: 2
+guid: 4a65768fe19404053993ec8ee1012a0b
+timeCreated: 1508575472
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: orang-01_0
+    21300002: orang-01_1
+    21300004: orang-01_2
+    21300006: orang-01_3
+    21300008: orang-01_4
+    21300010: orang-01_5
+    21300012: orang-01_6
+    21300014: orang-01_7
+    21300016: orang-01_8
+    21300018: orang-01_9
+    21300020: orang-01_10
+    21300022: orang-01_11
+    21300024: orang-01_12
+    21300026: orang-01_13
+    21300028: orang-01_14
+    21300030: orang-01_15
+    21300032: orang-01_16
+    21300034: orang-01_17
+    21300036: orang-01_18
+    21300038: orang-01_19
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: orang-01_0
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 3303
+        width: 613
+        height: 867
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_1
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 3264
+        width: 665
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_2
+      rect:
+        serializedVersion: 2
+        x: 2305
+        y: 3244
+        width: 646
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_3
+      rect:
+        serializedVersion: 2
+        x: 3337
+        y: 3264
+        width: 665
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_4
+      rect:
+        serializedVersion: 2
+        x: 4390
+        y: 3236
+        width: 647
+        height: 900
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_5
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 2201
+        width: 499
+        height: 895
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_6
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 2183
+        width: 497
+        height: 921
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_7
+      rect:
+        serializedVersion: 2
+        x: 2374
+        y: 2175
+        width: 499
+        height: 921
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_8
+      rect:
+        serializedVersion: 2
+        x: 3433
+        y: 2176
+        width: 499
+        height: 925
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_9
+      rect:
+        serializedVersion: 2
+        x: 4489
+        y: 2190
+        width: 499
+        height: 911
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_10
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 1181
+        width: 613
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_11
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 1140
+        width: 672
+        height: 923
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_12
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1080
+        width: 691
+        height: 971
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_13
+      rect:
+        serializedVersion: 2
+        x: 3355
+        y: 1135
+        width: 673
+        height: 923
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_14
+      rect:
+        serializedVersion: 2
+        x: 4414
+        y: 1073
+        width: 693
+        height: 970
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_15
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 94
+        width: 500
+        height: 911
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_16
+      rect:
+        serializedVersion: 2
+        x: 1303
+        y: 82
+        width: 497
+        height: 923
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_17
+      rect:
+        serializedVersion: 2
+        x: 2362
+        y: 79
+        width: 499
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_18
+      rect:
+        serializedVersion: 2
+        x: 3434
+        y: 71
+        width: 498
+        height: 921
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: orang-01_19
+      rect:
+        serializedVersion: 2
+        x: 4489
+        y: 84
+        width: 499
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
