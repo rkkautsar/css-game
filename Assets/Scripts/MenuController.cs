@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour {
 
     public Transform canvas;
-    public Transform Player;
+    public Transform player;
     public Button exitButton;
 
     private void Start()
     {
-        exitButton.onClick.AddListener(exitOnClick);
+        Button exit = exitButton.GetComponent<Button>();
+        exit.onClick.AddListener(exitOnClick);
     }
 
     // Update is called once per frame
@@ -22,12 +23,12 @@ public class MenuController : MonoBehaviour {
             {
                 canvas.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                Player.GetComponent<Animator>().enabled = false;
+                player.GetComponent<Animator>().enabled = false;
             } else
             {
                 canvas.gameObject.SetActive(false);
                 Time.timeScale = 1;
-                Player.GetComponent<Animator>().enabled = true;
+                player.GetComponent<Animator>().enabled = true;
             }
         }
 	}
