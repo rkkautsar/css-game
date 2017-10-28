@@ -201,11 +201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6654e09e38a033d48902f82d608e9419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groupImage: {fileID: 1268140983103154, guid: e27f19e4bb71d6c4b86f8812b9458061, type: 2}
+  groupImage: {fileID: 1016970335121566, guid: e27f19e4bb71d6c4b86f8812b9458061, type: 2}
   groupCanvas: {fileID: 790012754}
   numberOfGroup: 0
   groups: []
   groupInstances: []
+  isInstantiated: 
   gridRangeX:
     maximum: 0
     minimum: 0
