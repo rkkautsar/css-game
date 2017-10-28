@@ -24,6 +24,7 @@ public class GroupScript : MonoBehaviour {
     public int numberOfGroup;
     public GameObject[] groups;
     public Group[] groupInstances;
+    public Boolean[] isInstantiated;
     public Count gridRangeX;
     public Count gridRangeY;
 
@@ -31,14 +32,10 @@ public class GroupScript : MonoBehaviour {
     {
         Vector3 position = randomVector3();
         float startTime = Random.Range(0, 10);
-        float endTime = Random.Range(startTime, 10);
+        float interval = Random.Range(0, 10);
 
-        //GameObject group = Instantiate(groupImage, position, Quaternion.identity);
-        //group.GetComponent<Group>().setGroup("Anjing", position, startTime, endTime);
-        //group.transform.SetParent(this.groupCanvas);
-        //this.groups[index] = group;
-
-        this.groupInstances[index] = new Group("Anjing" + index, position, startTime, endTime);
+        this.groupInstances[index] = new Group("Anjing" + index, position, startTime, interval);
+        this.isInstantiated[index] = false;
     }
 
     // Use this for initialization
@@ -48,6 +45,7 @@ public class GroupScript : MonoBehaviour {
         this.gridRangeY = new Count(0, 320);
         this.groups = new GameObject[numberOfGroup];
         this.groupInstances = new Group[numberOfGroup];
+        this.isInstantiated = new Boolean[numberOfGroup];
 
         for (int i = 0; i < numberOfGroup; i++)
         {
@@ -61,15 +59,18 @@ public class GroupScript : MonoBehaviour {
         for (int i = 0; i < numberOfGroup; i++)
         {
             Group g = this.groupInstances[i];
-            if (time > g.getStartTime())
+            if (time > g.getStartTime() && !this.isInstantiated[i])
             {
-
                 GameObject group = Instantiate(groupImage, g.getPosition(), Quaternion.identity);
-                group.GetComponent<Group>().setGroup(g.getName(), g.getPosition(), g.getStartTime(), g.getEndTime());
-                group.transform.SetParent(this.groupCanvas);
-                this.groups[i] = group;
-            }
 
+                group.GetComponent<Group>().setGroup(g.getName(), g.getPosition(), g.getStartTime(), g.getInterval());
+                group.transform.SetParent(this.groupCanvas);
+
+                Destroy(group, g.getInterval());
+
+                this.groups[i] = group;
+                this.isInstantiated[i] = true;
+            }
         }
 	}
 
@@ -77,7 +78,9 @@ public class GroupScript : MonoBehaviour {
     {
         float x = Random.Range(this.gridRangeX.minimum, this.gridRangeX.maximum);
         float y = Random.Range(this.gridRangeY.minimum, this.gridRangeY.maximum);
+
         Vector3 pos = new Vector3(x, y, 0);
+
         return pos;
     }
 }

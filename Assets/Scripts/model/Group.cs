@@ -8,28 +8,28 @@ public class Group : MonoBehaviour {
     // public int numberOfPeople;
     public Vector3 position;
     public float startTime;
-    public float endTime;
+    public float interval;
     public String interest;
 
     public GameObject go;
 
     public Group() {}
 
-    public Group(String name, Vector3 position, float start, float end)
+    public Group(String name, Vector3 position, float start, float interval)
     {
         this.name = name;
         this.position = position;
         this.startTime = start;
-        this.endTime = end;
+        this.interval = interval;
         //this.interest = interest;
     }
 
-    public void setGroup(String name, Vector3 position, float start, float end)
+    public void setGroup(String name, Vector3 position, float start, float interval)
     {
         this.name = name;
         this.position = position;
         this.startTime = start;
-        this.endTime = end;
+        this.interval = interval;
         //this.interest = interest;
     }
 
@@ -49,9 +49,9 @@ public class Group : MonoBehaviour {
         return this.startTime;
     }
 
-    public float getEndTime()
+    public float getInterval()
     {
-        return this.endTime;
+        return this.interval;
     }
 
     public String getName()
@@ -62,5 +62,10 @@ public class Group : MonoBehaviour {
     public Vector3 getPosition()
     {
         return this.position;
+    }
+
+    public void OnClick()
+    {
+        Debug.Log("ini ke klik gan");
     }
 }
