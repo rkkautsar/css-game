@@ -203,7 +203,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groupImage: {fileID: 1016970335121566, guid: e27f19e4bb71d6c4b86f8812b9458061, type: 2}
   groupCanvas: {fileID: 790012754}
-  numberOfGroup: 0
+  levelTime: 300
+  numberOfGroup: 60
+  maxInterval: 10
   groups: []
   groupInstances: []
   isInstantiated: 
@@ -489,7 +491,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790012750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 502, y: 267, z: 0}
+  m_LocalPosition: {x: 502, y: 260, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1040433547}
@@ -694,7 +696,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: (( Timer Text ))
 --- !u!222 &1040433549
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -878,6 +880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587355083}
   - component: {fileID: 1587355082}
+  - component: {fileID: 1587355084}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -897,7 +900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1109818230}
-  player: {fileID: 0}
+  player: {fileID: 1763061125}
   exitButton: {fileID: 695295705}
 --- !u!4 &1587355083
 Transform:
@@ -912,6 +915,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1587355084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1587355081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a2f364c83cb4e10b94d4789fbd499f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 1040433548}
 --- !u!1 &1654454245
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,8 +1081,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e90f27e012714db9bb87de881db1908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseText: {fileID: 0}
   moveSpeed: 5
-  timerText: {fileID: 1040433548}
+  player: {fileID: 0}
 --- !u!95 &1763061124
 Animator:
   serializedVersion: 3

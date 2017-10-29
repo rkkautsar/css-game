@@ -21,7 +21,9 @@ public class GroupScript : MonoBehaviour {
 
     public GameObject groupImage;
     public Transform groupCanvas;
-    public int numberOfGroup;
+	public int levelTime = 300;
+	public int numberOfGroup = 999;
+	public int maxInterval = 10;
     public GameObject[] groups;
     public Group[] groupInstances;
     public Boolean[] isInstantiated;
@@ -31,8 +33,8 @@ public class GroupScript : MonoBehaviour {
     void initializeGroup(int index)
     {
         Vector3 position = randomVector3();
-        float startTime = Random.Range(0, 10);
-        float interval = Random.Range(0, 10);
+        float startTime = Random.Range(0, levelTime);
+		float interval = Random.Range(0, maxInterval);
 
         this.groupInstances[index] = new Group("Anjing" + index, position, startTime, interval);
         this.isInstantiated[index] = false;
@@ -40,7 +42,6 @@ public class GroupScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        this.numberOfGroup = 5;
         this.gridRangeX = new Count(0, 800);
         this.gridRangeY = new Count(0, 320);
         this.groups = new GameObject[numberOfGroup];
