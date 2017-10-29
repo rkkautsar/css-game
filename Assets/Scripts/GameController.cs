@@ -37,11 +37,11 @@ public class GameController : MonoBehaviour {
 			new Course ("SDA 2", 4, exams2, assignments2)
 		};
 
-		timerText.text = Time.time.ToString();
+		timerText.text = "Time: " + Time.time.ToString();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		timerText.text = Time.time.ToString();
+		timerText.text = "Time: " + Time.time.ToString();
 	}
 }

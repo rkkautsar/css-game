@@ -42,7 +42,7 @@ public class GroupScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        this.gridRangeX = new Count(0, 800);
+        this.gridRangeX = new Count(120, 800);
         this.gridRangeY = new Count(0, 320);
         this.groups = new GameObject[numberOfGroup];
         this.groupInstances = new Group[numberOfGroup];
@@ -50,7 +50,7 @@ public class GroupScript : MonoBehaviour {
 
         for (int i = 0; i < numberOfGroup; i++)
         {
-            initializeGroup(i);
+            initializeGroup(i);	
         }
 	}
 	
