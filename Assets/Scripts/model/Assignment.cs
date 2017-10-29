@@ -2,22 +2,25 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Assignment : MonoBehaviour
 {
 	public string title;
-	public double weight;
+	public float weight;
+	public float startWeight;
 	public double score;
 	public double startTime;
 	public double endTime;
 	public double progress;
 	public bool isVisible = false;
+	public Slider slider;
 
 	IEnumerator countd = null;
 
 	float speed = 1f;
 
-	public Assignment (string title_, double weight_, double startTime_, double endTime_)
+	public Assignment (string title_, float weight_, double startTime_, double endTime_)
 	{
 		title = title_;
 		weight = weight_;
@@ -30,12 +33,14 @@ public class Assignment : MonoBehaviour
 
 	}
 
-	public void setValues (string title_, double weight_, double startTime_, double endTime_)
+	public void setValues (string title_, float weight_, double startTime_, double endTime_)
 	{
 		title = title_;
 		weight = weight_;
 		startTime = startTime_;
+		startWeight = weight_;
 		endTime = endTime_;
+		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 	}
 
 	// Use this for initialization
@@ -57,10 +62,12 @@ public class Assignment : MonoBehaviour
 
 	IEnumerator Countdown ()
 	{
+		slider.value = (weight/startWeight);
 		while (weight > 0) {
 			yield return new WaitForSeconds (1f);
 			Debug.Log (weight);
 			weight -= speed;
+			slider.value = (weight / startWeight);
 		}
 		Kill ();
 	}

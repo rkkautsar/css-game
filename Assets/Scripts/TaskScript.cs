@@ -34,8 +34,8 @@ public class TaskScript : MonoBehaviour {
 	void Start () {
 		activeTasks = new List<Assignment> {
 			// judul tugas, bobot (%), start time (detik), end time (detik)
-			new Assignment("Tugas 1 DDP", 20, 3, 10),
-			new Assignment("Tugas 2 DDP", 20, 7, 12)
+			new Assignment("Tugas 1 DDP", 10f, 3, 10),
+			new Assignment("Tugas 2 DDP", 5f, 7, 12)
 		};
 		/**
 		for (int i = 0; i < activeTasks.Count; i++) {
