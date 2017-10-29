@@ -489,7 +489,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790012750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 414, y: 163, z: 0}
+  m_LocalPosition: {x: 502, y: 267, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1040433547}
@@ -897,7 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1109818230}
-  player: {fileID: 1763061125}
+  player: {fileID: 0}
   exitButton: {fileID: 695295705}
 --- !u!4 &1587355083
 Transform:
