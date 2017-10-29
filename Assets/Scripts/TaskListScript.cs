@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine; 
+using UnityEngine.UI;
+
 
 public class TaskListScript : MonoBehaviour {
 
@@ -12,7 +14,8 @@ public class TaskListScript : MonoBehaviour {
 	void Start () {
 		for (int i = 0; i < n; i++) {
 			GameObject button = Instantiate (buttonPrefab, transform);
-			button.GetComponent<Assignment> ().Init ("Fuck Task", 5.0);
+			button.GetComponent<Assignment> ().Init ("Tugas ", 5.0);
+			button.GetComponentsInChildren<Text> () [0].text = "Task " + i;
 		}
 	}
 
