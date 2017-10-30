@@ -22,7 +22,7 @@ public class GroupScript : MonoBehaviour {
     public GameObject groupImage;
     public Transform groupCanvas;
 	public int levelTime = 300;
-	public int numberOfGroup = 999;
+	public int numberOfGroup = 50;
 	public int maxInterval = 10;
     public GameObject[] groups;
     public Group[] groupInstances;
