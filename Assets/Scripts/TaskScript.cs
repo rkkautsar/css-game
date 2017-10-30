@@ -34,9 +34,16 @@ public class TaskScript : MonoBehaviour {
 	void Start () {
 		activeTasks = new List<Assignment> {
 			// judul tugas, bobot (%), start time (detik), end time (detik)
-			new Assignment("Tugas 1 DDP", 20, 3, 10),
-			new Assignment("Tugas 2 DDP", 20, 7, 12)
+			new Assignment("Tugas 1 DDP", 10f, 3, 10),
+			new Assignment("Tugas 2 DDP", 5f, 7, 12)
 		};
+		/**
+		for (int i = 0; i < activeTasks.Count; i++) {
+			GameObject button = Instantiate (taskUI, transform);
+			button.GetComponent<Assignment> ().setValues (activeTasks[i].title, activeTasks[i].weight, activeTasks[i].startTime, activeTasks[i].endTime);
+			
+		}
+		**/
 	}
 	
 	// Update is called once per frame
@@ -46,16 +53,23 @@ public class TaskScript : MonoBehaviour {
 			//print ("now=" + time.ToString() + ", s=" + task.startTime.ToString() + ", e=" + task.endTime.ToString());
 			if (time > task.startTime && time < task.endTime && !task.isVisible) {
 				numVisible++;
-				GameObject taskObj = Instantiate (taskUI, getPosition (numVisible), Quaternion.identity);
+				GameObject taskObj = Instantiate (taskUI, transform);
 				taskObj.GetComponent<Assignment> ().setValues (task.title, task.weight, task.startTime, task.endTime);
 				taskObj.GetComponent<Text> ().text = task.title;
 				task.isVisible = true;
-				taskObj.transform.SetParent (this.taskCanvas);
 			}
 
 			if (time > task.endTime) {
 				task.isVisible = false;
 			}
+		}
+	}
+
+	public void StopAll ()
+	{
+		for (int i = 0; i < transform.childCount; i++) {
+			Transform child = transform.GetChild (i);
+			child.GetComponent<Assignment> ().StopCountdown ();
 		}
 	}
 
