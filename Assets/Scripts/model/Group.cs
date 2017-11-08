@@ -69,6 +69,9 @@ public class Group : MonoBehaviour {
     public void OnClick()
     {
         Debug.Log("ini ke klik gan");
+		// sound effect
+		AudioSource audio = GetComponent<AudioSource>();
+		audio.Play();
     }
 
     public int getPrefabType()
