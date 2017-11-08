@@ -19,24 +19,36 @@ public class GroupScript : MonoBehaviour {
         }
     }
 
-    public GameObject groupImage;
+    public GameObject emptyTable;
     public Transform groupCanvas;
 	public int levelTime = 300;
 	public int numberOfGroup = 50;
 	public int maxInterval = 10;
+    public int numberOfTable = 6;
     public GameObject[] groups;
+    public GameObject[] groupPrefabs;
     public Group[] groupInstances;
     public Boolean[] isInstantiated;
     public Count gridRangeX;
     public Count gridRangeY;
+    public Vector3[] tablePosition = {
+        new Vector3(-6f, 6f, 0f),
+        new Vector3(-6f, 0f, 0f),
+        new Vector3(-6f, -6f, 0f),
+        new Vector3(6f, 6f, 0f),
+        new Vector3(6f, 0f, 0f),
+        new Vector3(6f, -6f, 0f),
+    };
 
     void initializeGroup(int index)
     {
-        Vector3 position = randomVector3();
+        //Vector3 position = randomVector3();
+        Vector3 position = new Vector3(0f, 0f, 0f);
         float startTime = Random.Range(0, levelTime);
 		float interval = Random.Range(0, maxInterval);
+        int prefabType = Random.Range(0, groupPrefabs.Length);
 
-        this.groupInstances[index] = new Group("Anjing" + index, position, startTime, interval);
+        this.groupInstances[index] = new Group("Anjing" + index, position, startTime, interval, prefabType);
         this.isInstantiated[index] = false;
     }
 
@@ -48,10 +60,19 @@ public class GroupScript : MonoBehaviour {
         this.groupInstances = new Group[numberOfGroup];
         this.isInstantiated = new Boolean[numberOfGroup];
 
+        // initialize fixed table
+        for (int i = 0; i < numberOfTable; i++)
+        {
+            GameObject g = Instantiate(emptyTable, tablePosition[i], Quaternion.identity);
+            Debug.Log(tablePosition[i].y);
+            g.transform.SetParent(this.groupCanvas);
+            Debug.Log("muncul");
+        }
+
         for (int i = 0; i < numberOfGroup; i++)
         {
             initializeGroup(i);	
-        }
+        } 
 	}
 	
 	// Update is called once per frame
@@ -62,15 +83,15 @@ public class GroupScript : MonoBehaviour {
             Group g = this.groupInstances[i];
             if (time > g.getStartTime() && !this.isInstantiated[i])
             {
-                GameObject group = Instantiate(groupImage, g.getPosition(), Quaternion.identity);
+                //GameObject group = Instantiate(groupPrefabs[g.getPrefabType()], g.getPosition(), Quaternion.identity);
 
-                group.GetComponent<Group>().setGroup(g.getName(), g.getPosition(), g.getStartTime(), g.getInterval());
-                group.transform.SetParent(this.groupCanvas);
+                //group.GetComponent<Group>().setGroup(g.getName(), g.getPosition(), g.getStartTime(), g.getInterval(), g.getPrefabType());
+                //group.transform.SetParent(this.groupCanvas);
 
-                Destroy(group, g.getInterval());
+                //Destroy(group, g.getInterval());
 
-                this.groups[i] = group;
-                this.isInstantiated[i] = true;
+                //this.groups[i] = group;
+                //this.isInstantiated[i] = true;
             }
         }
 	}

@@ -5,7 +5,7 @@ using System;
 
 public class Group : MonoBehaviour {
     public string name;
-    // public int numberOfPeople;
+    public int prefabType;
     public Vector3 position;
     public float startTime;
     public float interval;
@@ -15,22 +15,24 @@ public class Group : MonoBehaviour {
 
     public Group() {}
 
-    public Group(String name, Vector3 position, float start, float interval)
+    public Group(String name, Vector3 position, float start, float interval, int prefabType)
     {
         this.name = name;
         this.position = position;
         this.startTime = start;
         this.interval = interval;
         //this.interest = interest;
+        this.prefabType = prefabType;
     }
 
-    public void setGroup(String name, Vector3 position, float start, float interval)
+    public void setGroup(String name, Vector3 position, float start, float interval, int prefabType)
     {
         this.name = name;
         this.position = position;
         this.startTime = start;
         this.interval = interval;
         //this.interest = interest;
+        this.prefabType = prefabType;
     }
 
 
@@ -67,5 +69,10 @@ public class Group : MonoBehaviour {
     public void OnClick()
     {
         Debug.Log("ini ke klik gan");
+    }
+
+    public int getPrefabType()
+    {
+        return this.prefabType;
     }
 }
