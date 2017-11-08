@@ -31,7 +31,7 @@ public class GroupScript : MonoBehaviour {
     public Boolean[] isInstantiated;
     public Count gridRangeX;
     public Count gridRangeY;
-    public Vector3[] tablePosition = {
+    public Vector3[] tablePositions = {
         new Vector3(-6f, 6f, 0f),
         new Vector3(-6f, 0f, 0f),
         new Vector3(-6f, -6f, 0f),
@@ -63,10 +63,8 @@ public class GroupScript : MonoBehaviour {
         // initialize fixed table
         for (int i = 0; i < numberOfTable; i++)
         {
-            GameObject g = Instantiate(emptyTable, tablePosition[i], Quaternion.identity);
-            Debug.Log(tablePosition[i].y);
+            GameObject g = Instantiate(emptyTable, tablePositions[i], Quaternion.identity);
             g.transform.SetParent(this.groupCanvas);
-            Debug.Log("muncul");
         }
 
         for (int i = 0; i < numberOfGroup; i++)
