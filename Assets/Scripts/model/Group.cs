@@ -6,7 +6,7 @@ using System;
 public class Group : MonoBehaviour {
     public string name;
     public int prefabType;
-    public Vector3 position;
+    public int position;
     public float startTime;
     public float interval;
     public String interest;
@@ -15,7 +15,7 @@ public class Group : MonoBehaviour {
 
     public Group() {}
 
-    public Group(String name, Vector3 position, float start, float interval, int prefabType)
+    public Group(String name, int position, float start, float interval, int prefabType)
     {
         this.name = name;
         this.position = position;
@@ -25,7 +25,7 @@ public class Group : MonoBehaviour {
         this.prefabType = prefabType;
     }
 
-    public void setGroup(String name, Vector3 position, float start, float interval, int prefabType)
+    public void setGroup(String name, int position, float start, float interval, int prefabType)
     {
         this.name = name;
         this.position = position;
@@ -61,14 +61,13 @@ public class Group : MonoBehaviour {
         return this.name;
     }
 
-    public Vector3 getPosition()
+    public int getPosition()
     {
         return this.position;
     }
 
     public void OnClick()
     {
-        Debug.Log("ini ke klik gan");
 		// sound effect
 		AudioSource audio = GetComponent<AudioSource>();
 		audio.Play();
