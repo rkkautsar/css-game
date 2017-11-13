@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System;
 using Random = UnityEngine.Random;
 
@@ -73,7 +74,7 @@ public class TaskScript : MonoBehaviour {
 		}
 	}
 
-	Vector3 getPosition(int idx) {
-		return new Vector3 (80, 200 - (20 * idx));
+	public void onPlayClick() {
+		SceneManager.LoadScene("MainScene");
 	}
 }

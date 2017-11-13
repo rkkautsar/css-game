@@ -2,18 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
     public Transform canvas;
     public Transform player;
-    public Button exitButton;
-
-    private void Start()
-    {
-        Button exit = exitButton.GetComponent<Button>();
-        exit.onClick.AddListener(exitOnClick);
-    }
 
     // Update is called once per frame
     void Update () {
@@ -32,9 +26,4 @@ public class MenuController : MonoBehaviour {
             }
         }
 	}
-
-    void exitOnClick()
-    {
-        Application.Quit();
-    }
 }
