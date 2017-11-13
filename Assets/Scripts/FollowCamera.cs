@@ -7,6 +7,7 @@ public class FollowCamera : MonoBehaviour
     public float interpVelocity;
     public float minDistance;
     public float followDistance;
+	public float scale = 10f;
     public GameObject target;
     public Vector3 offset;
     Vector3 targetPos;
@@ -26,7 +27,7 @@ public class FollowCamera : MonoBehaviour
 
             Vector3 targetDirection = (target.transform.position - posNoZ);
 
-            interpVelocity = targetDirection.magnitude * 5f;
+            interpVelocity = targetDirection.magnitude * scale;
 
             targetPos = transform.position + (targetDirection.normalized * interpVelocity * Time.deltaTime);
 
