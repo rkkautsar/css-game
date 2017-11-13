@@ -24,7 +24,7 @@ public class TaskScript : MonoBehaviour {
 	public GameObject visibleTasks;
 	public Transform taskCanvas;
 
-	public List<Assignment> activeTasks;
+	public List<Task> activeTasks;
 
 	private Count gridRangeX;
 	private Count gridRangeY;
@@ -32,10 +32,10 @@ public class TaskScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		activeTasks = new List<Assignment> {
+		activeTasks = new List<Task> {
 			// judul tugas, bobot (%), start time (detik), end time (detik)
-			new Assignment("Tugas 1 DDP", 10f, 3, 10),
-			new Assignment("Tugas 2 DDP", 5f, 7, 12)
+			new Task("Tugas 1 DDP", 10f, 3, 10),
+			new Task("Tugas 2 DDP", 5f, 7, 12)
 		};
 		/**
 		for (int i = 0; i < activeTasks.Count; i++) {
@@ -49,12 +49,12 @@ public class TaskScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		double time = Time.time;
-		foreach(Assignment task in activeTasks) {
+		foreach(Task task in activeTasks) {
 			//print ("now=" + time.ToString() + ", s=" + task.startTime.ToString() + ", e=" + task.endTime.ToString());
 			if (time > task.startTime && time < task.endTime && !task.isVisible) {
 				numVisible++;
 				GameObject taskObj = Instantiate (taskUI, transform);
-				taskObj.GetComponent<Assignment> ().setValues (task.title, task.weight, task.startTime, task.endTime);
+				taskObj.GetComponent<Task> ().setValues (task.title, task.weight, task.startTime, task.endTime);
 				taskObj.GetComponent<Text> ().text = task.title;
 				task.isVisible = true;
 			}
@@ -69,7 +69,7 @@ public class TaskScript : MonoBehaviour {
 	{
 		for (int i = 0; i < transform.childCount; i++) {
 			Transform child = transform.GetChild (i);
-			child.GetComponent<Assignment> ().StopCountdown ();
+			child.GetComponent<Task> ().StopCountdown ();
 		}
 	}
 

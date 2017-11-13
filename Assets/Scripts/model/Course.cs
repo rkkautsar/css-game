@@ -8,14 +8,12 @@ public class Course {
 	double grade;
 	string letterGrade;
 
-	public List<Exam> exams;
-	public List<Assignment> assignments;
+	public List<Task> tasks;
 
-	public Course(string title_, int credits_, List<Exam> exams_, List<Assignment> assignments_) {
+	public Course(string title_, int credits_, List<Task> tasks_) {
 		title = title_;
 		credits = credits_;
-		exams = exams_;
-		assignments = assignments_;
+		tasks = tasks_;
 	}
 
 	// Use this for initialization

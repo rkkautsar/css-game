@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Assignment : MonoBehaviour
+public class Task : MonoBehaviour
 {
 	public string title;
 	public float weight;
@@ -20,7 +20,7 @@ public class Assignment : MonoBehaviour
 
 	float speed = 1f;
 
-	public Assignment (string title_, float weight_, double startTime_, double endTime_)
+	public Task (string title_, float weight_, double startTime_, double endTime_)
 	{
 		title = title_;
 		weight = weight_;
@@ -28,7 +28,7 @@ public class Assignment : MonoBehaviour
 		endTime = endTime_;
 	}
 
-	public Assignment ()
+	public Task ()
 	{
 
 	}
