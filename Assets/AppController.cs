@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class AppController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public Transform canvas;
+    public Transform player;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -23,4 +26,25 @@ public class AppController : MonoBehaviour {
 	public void loadMainScene() {
 		SceneManager.LoadScene ("MainScene");
 	}
+
+    public void loadMenuScene()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
+    public void resumeOnClick()
+    {
+        if (canvas.gameObject.activeInHierarchy == false)
+        {
+            canvas.gameObject.SetActive(true);
+            Time.timeScale = 0;
+            player.GetComponent<Animator>().enabled = false;
+        }
+        else
+        {
+            canvas.gameObject.SetActive(false);
+            Time.timeScale = 1;
+            player.GetComponent<Animator>().enabled = true;
+        }
+    }
 }

@@ -23,7 +23,8 @@ public class GroupScript : MonoBehaviour {
     public Transform groupCanvas;
 	public int levelTime = 300;
 	public int numberOfGroup = 50;
-	public int maxInterval = 10;
+    public int minInterval = 10;
+	public int maxInterval = 20;
     public int numberOfTable = 6;
     public GameObject[] groups;
     public GameObject[] groupPrefabs;
@@ -40,10 +41,10 @@ public class GroupScript : MonoBehaviour {
         //Vector3 position = randomVector3();
         int position = Random.Range(0, tablePositions.Length);
         float startTime = Random.Range(0, levelTime);
-		float interval = Random.Range(0, maxInterval);
+		float interval = Random.Range(minInterval, maxInterval);
         int prefabType = Random.Range(0, groupPrefabs.Length);
 
-        this.groupInstances[index] = new Group("Anjing" + index, position, startTime, interval, prefabType);
+        this.groupInstances[index] = new Group(position, startTime, interval, prefabType);
         this.isInstantiated[index] = false;
     }
 
@@ -102,7 +103,7 @@ public class GroupScript : MonoBehaviour {
             {
                 GameObject group = Instantiate(groupPrefabs[g.getPrefabType()], tablePositions[g.getPosition()], Quaternion.identity);
 
-                group.GetComponent<Group>().setGroup(g.getName(), g.getPosition(), g.getStartTime(), g.getInterval(), g.getPrefabType());
+                group.GetComponent<Group>().setGroup(g.getPosition(), g.getStartTime(), g.getInterval(), g.getPrefabType());
                 group.transform.SetParent(this.groupCanvas);
 
                 Destroy(group, g.getInterval());

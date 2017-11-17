@@ -4,35 +4,31 @@ using UnityEngine;
 using System;
 
 public class Group : MonoBehaviour {
-    public string name;
     public int prefabType;
     public int position;
     public float startTime;
     public float interval;
-    public String interest;
+    public CourseList courses;
+    public List<float> incrementRates;
 
     public GameObject go;
 
     public Group() {}
 
-    public Group(String name, int position, float start, float interval, int prefabType)
+    public Group(int _position, float _startTime, float _interval, int _prefabType)
     {
-        this.name = name;
-        this.position = position;
-        this.startTime = start;
-        this.interval = interval;
-        //this.interest = interest;
-        this.prefabType = prefabType;
+        position = _position;
+        startTime = _startTime;
+        interval = _interval;
+        prefabType = _prefabType;
     }
 
-    public void setGroup(String name, int position, float start, float interval, int prefabType)
+    public void setGroup(int _position, float _startTime, float _interval, int _prefabType)
     {
-        this.name = name;
-        this.position = position;
-        this.startTime = start;
-        this.interval = interval;
-        //this.interest = interest;
-        this.prefabType = prefabType;
+        position = _position;
+        startTime = _startTime;
+        interval = _interval;
+        prefabType = _prefabType;
     }
 
 
@@ -48,22 +44,22 @@ public class Group : MonoBehaviour {
 
     public float getStartTime()
     {
-        return this.startTime;
+        return startTime;
     }
 
     public float getInterval()
     {
-        return this.interval;
+        return interval;
     }
 
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     public int getPosition()
     {
-        return this.position;
+        return position;
     }
 
     public void OnClick()
@@ -75,6 +71,6 @@ public class Group : MonoBehaviour {
 
     public int getPrefabType()
     {
-        return this.prefabType;
+        return prefabType;
     }
 }
