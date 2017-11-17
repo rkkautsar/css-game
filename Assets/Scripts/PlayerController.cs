@@ -20,15 +20,21 @@ public class PlayerController : MonoBehaviour {
 		rt = GetComponent<RectTransform> ();
 		isMouseMoving = false;
 	}
+
+	public void MovePlayer(){
+		destination = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+		destination.z = 0;
+		isMouseMoving = true;
+	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetMouseButtonUp (0)) {
-			destination = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-			destination.z = 0;
-			isMouseMoving = true;
-		}
+//		if (Input.GetMouseButtonUp (0)) {
+//			destination = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+//			destination.z = 0;
+//			isMouseMoving = true;
+//		}
 
 		if (!isMouseMoving) {
 			if (Mathf.Abs(Input.GetAxisRaw ("Horizontal")) > 0) {

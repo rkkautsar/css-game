@@ -50,6 +50,7 @@ public class TaskScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		double time = Time.time;
+		/**
 		foreach(Task task in activeTasks) {
 			//print ("now=" + time.ToString() + ", s=" + task.startTime.ToString() + ", e=" + task.endTime.ToString());
 			if (time > task.startTime && time < task.endTime && !task.isVisible) {
@@ -64,6 +65,7 @@ public class TaskScript : MonoBehaviour {
 				task.isVisible = false;
 			}
 		}
+		**/
 	}
 
 	public void StopAll ()
