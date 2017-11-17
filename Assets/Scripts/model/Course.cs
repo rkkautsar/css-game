@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Course {
 	string title;
+	string code;
 	int credits;
 	double grade;
 	string letterGrade;
 
 	public List<Task> tasks;
 
-	public Course(string title_, int credits_, List<Task> tasks_) {
+	public Course(string title_, string code_, int credits_, List<Task> tasks_) {
 		title = title_;
+		code = code_;
 		credits = credits_;
 		tasks = tasks_;
 	}
