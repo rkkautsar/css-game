@@ -13,14 +13,14 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	public void Start () {
         setLevel(currentLevel);
-		timerText.text = "Time: " + Time.time.ToString();
+		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		timerText.text = "Time: " + Time.time.ToString();
+		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
 
-        if (Time.time > maxTimePerLevel)
+        if (Time.timeSinceLevelLoad > maxTimePerLevel)
         {
             levelEnded();
         }
