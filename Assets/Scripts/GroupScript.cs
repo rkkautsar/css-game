@@ -21,7 +21,6 @@ public class GroupScript : MonoBehaviour {
 
     public GameObject emptyTable;
     public Transform groupCanvas;
-	public int levelTime = 300;
 	public int numberOfGroup = 50;
     public Count intervalBoundary = new Count(5, 10);
     public int numberOfTable = 6;
@@ -31,7 +30,6 @@ public class GroupScript : MonoBehaviour {
     public Boolean[] isInstantiated;
     public Boolean[] isOccupied;
     public Vector3[] tablePositions;
-    public int level;
 
     // get other script
     public GameController gameControllerScript;
@@ -40,7 +38,7 @@ public class GroupScript : MonoBehaviour {
     {
         // randomize group attribute
         int position = Random.Range(0, tablePositions.Length);
-        float startTime = Random.Range(0, levelTime);
+        float startTime = Random.Range(0, gameControllerScript.maxTimePerLevel);
 		float interval = Random.Range(intervalBoundary.minimum, intervalBoundary.maximum);
         int prefabType = Random.Range(0, groupPrefabs.Length);
 
@@ -91,7 +89,7 @@ public class GroupScript : MonoBehaviour {
         // start other script, need variable defined there
         gameControllerScript.Start();
 
-        setLevel(level);
+        setLevel(gameControllerScript.currentLevel);
 
         // initialize fixed table
         for (int i = 0; i < numberOfTable; i++)
