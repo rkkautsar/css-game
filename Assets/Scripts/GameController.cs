@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
 	public List<Course> courseList;
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		List<Task> tasks1 = new List<Task> {
 			// judul tugas, bobot (%), start time (detik), end time (detik)
 			new Task("Tugas 1 - DDP", 5, 0, 60),
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour {
 			new Task("UAS - PSD", 30, 260, 300)
 		};
 
-		List<Course> courseList = new List<Course> {
+		courseList = new List<Course> {
 			new Course ("Dasar Dasar Pemrograman", "DDP", 6, tasks1),
 			new Course ("Calculus", "CAL", 3, tasks2),
 			new Course ("Discrete", "DISC", 3, tasks3),

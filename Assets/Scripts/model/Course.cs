@@ -27,4 +27,19 @@ public class Course {
 	void Update () {
 		
 	}
+
+    public string getTitle()
+    {
+        return title;
+    }
+
+    public string getCode()
+    {
+        return code;
+    }
+
+    public int getCredits()
+    {
+        return credits;
+    }
 }

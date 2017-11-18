@@ -23,28 +23,49 @@ public class GroupScript : MonoBehaviour {
     public Transform groupCanvas;
 	public int levelTime = 300;
 	public int numberOfGroup = 50;
-    public int minInterval = 10;
-	public int maxInterval = 20;
+    public Count intervalBoundary = new Count(5, 10);
     public int numberOfTable = 6;
     public GameObject[] groups;
     public GameObject[] groupPrefabs;
     public Group[] groupInstances;
     public Boolean[] isInstantiated;
     public Boolean[] isOccupied;
-    public Count gridRangeX;
-    public Count gridRangeY;
     public Vector3[] tablePositions;
     public int level;
 
+    // get other script
+    public GameController gameControllerScript;
+
     void initializeGroup(int index)
     {
-        //Vector3 position = randomVector3();
+        // randomize group attribute
         int position = Random.Range(0, tablePositions.Length);
         float startTime = Random.Range(0, levelTime);
-		float interval = Random.Range(minInterval, maxInterval);
+		float interval = Random.Range(intervalBoundary.minimum, intervalBoundary.maximum);
         int prefabType = Random.Range(0, groupPrefabs.Length);
 
-        this.groupInstances[index] = new Group(position, startTime, interval, prefabType);
+        // randomize courseList and increment rates
+        int numOfAffectedCourse = Random.Range(1, gameControllerScript.courseList.Count);
+        List<Course> affectedCourse = new List<Course>();
+        List<float> incrementRates = new List<float>();
+
+        Boolean[] isCourseTaken = new Boolean[gameControllerScript.courseList.Count];
+        Array.Clear(isCourseTaken, 0, isCourseTaken.Length);
+
+        for (int i = 0; i < numOfAffectedCourse; i++)
+        {
+            int courseIndex = Random.Range(1, gameControllerScript.courseList.Count) - 1;
+            while(isCourseTaken[courseIndex])
+            {
+                courseIndex = (courseIndex + 1) % gameControllerScript.courseList.Count;
+            }
+            affectedCourse.Add(gameControllerScript.courseList[courseIndex]);
+            incrementRates.Add(Random.Range(-3.0f, 5.0f));
+            isCourseTaken[courseIndex] = true;
+        }
+
+        // instantiate group
+        this.groupInstances[index] = new Group(position, startTime, interval, prefabType, affectedCourse, incrementRates);
         this.isInstantiated[index] = false;
     }
 
@@ -63,11 +84,12 @@ public class GroupScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        this.gridRangeX = new Count(120, 800);
-        this.gridRangeY = new Count(0, 320);
         this.groups = new GameObject[numberOfGroup];
         this.groupInstances = new Group[numberOfGroup];
         this.isInstantiated = new Boolean[numberOfGroup];
+
+        // start other script, need variable defined there
+        gameControllerScript.Start();
 
         setLevel(level);
 
@@ -91,11 +113,13 @@ public class GroupScript : MonoBehaviour {
 
         Array.Clear(isOccupied, 0, isOccupied.Length);
 
+        // handle group appear in occupied table
         for(int i = 0; i < numberOfGroup; i++)
         {
             Group g = this.groupInstances[i];
             this.isOccupied[g.getPosition()] |= (this.groups[i] != null);
         }
+
         for (int i = 0; i < numberOfGroup; i++)
         {
             Group g = this.groupInstances[i];
@@ -103,7 +127,7 @@ public class GroupScript : MonoBehaviour {
             {
                 GameObject group = Instantiate(groupPrefabs[g.getPrefabType()], tablePositions[g.getPosition()], Quaternion.identity);
 
-                group.GetComponent<Group>().setGroup(g.getPosition(), g.getStartTime(), g.getInterval(), g.getPrefabType());
+                group.GetComponent<Group>().setGroup(g.getPosition(), g.getStartTime(), g.getInterval(), g.getPrefabType(), g.getCourses(), g.getIncrementRates());
                 group.transform.SetParent(this.groupCanvas);
 
                 Destroy(group, g.getInterval());
@@ -114,14 +138,4 @@ public class GroupScript : MonoBehaviour {
             }
         }
 	}
-
-    Vector3 randomVector3()
-    {
-        float x = Random.Range(this.gridRangeX.minimum, this.gridRangeX.maximum);
-        float y = Random.Range(this.gridRangeY.minimum, this.gridRangeY.maximum);
-
-        Vector3 pos = new Vector3(x, y, 0);
-
-        return pos;
-    }
 }

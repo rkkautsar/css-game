@@ -256,7 +256,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 284239416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 479, y: 202, z: 0}
+  m_LocalPosition: {x: 338.5, y: 159.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1040433547}
@@ -477,7 +477,7 @@ RectTransform:
   m_Children:
   - {fileID: 819424948}
   m_Father: {fileID: 768646355}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -720,8 +720,9 @@ MonoBehaviour:
   groupCanvas: {fileID: 790012754}
   levelTime: 300
   numberOfGroup: 60
-  minInterval: 10
-  maxInterval: 10
+  intervalBoundary:
+    maximum: 10
+    minimum: 5
   numberOfTable: 6
   groups: []
   groupPrefabs:
@@ -738,12 +739,6 @@ MonoBehaviour:
   groupInstances: []
   isInstantiated: 
   isOccupied: 000000000000
-  gridRangeX:
-    maximum: 0
-    minimum: 0
-  gridRangeY:
-    maximum: 0
-    minimum: 0
   tablePositions:
   - {x: -6, y: 6, z: 0}
   - {x: -6, y: 0, z: 0}
@@ -752,6 +747,7 @@ MonoBehaviour:
   - {x: 6, y: 0, z: 0}
   - {x: 6, y: -6, z: 0}
   level: 1
+  gameControllerScript: {fileID: 1587355084}
 --- !u!4 &642995585
 Transform:
   m_ObjectHideFlags: 0
@@ -1000,8 +996,9 @@ RectTransform:
   m_LocalPosition: {x: 0.0000076293945, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 446010115}
+  - {fileID: 1549566401}
   - {fileID: 695295704}
+  - {fileID: 446010115}
   m_Father: {fileID: 1109818230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
