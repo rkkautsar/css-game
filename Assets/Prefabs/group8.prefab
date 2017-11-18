@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114416620565142422}
   - component: {fileID: 82832894614636076}
   - component: {fileID: 61221093413279730}
+  - component: {fileID: 58827578257618730}
   m_Layer: 5
   m_Name: group8
   m_TagString: Untagged
@@ -32,6 +33,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!58 &58827578257618730
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166860386864604}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!61 &61221093413279730
 BoxCollider2D:
   m_ObjectHideFlags: 1
