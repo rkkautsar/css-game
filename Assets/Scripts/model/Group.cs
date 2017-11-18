@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using System;
 
 public class Group : MonoBehaviour {
@@ -87,4 +88,12 @@ public class Group : MonoBehaviour {
     {
         return incrementRates;
     }
+
+	void OnTriggerEnter2D(Collider2D other) {
+		EditorUtility.DisplayDialog ("enter trigger " + this.getCourses() + " " + this.getIncrementRates(), other.gameObject.tag, "asd", "asd");
+	}
+
+	void OnTriggerExit2D(Collider2D other) {
+		EditorUtility.DisplayDialog ("exit trigger" + this.getCourses() + " " + this.getIncrementRates(), other.gameObject.tag, "asd", "asd");
+	}
 }
