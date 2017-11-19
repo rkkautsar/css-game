@@ -42,28 +42,14 @@ public class GroupScript : MonoBehaviour {
 		float interval = Random.Range(intervalBoundary.minimum, intervalBoundary.maximum);
         int prefabType = Random.Range(0, groupPrefabs.Length);
 
-        // randomize courseList and increment rates
-        int numOfAffectedCourse = Random.Range(1, gameControllerScript.courseList.Count);
-        List<Course> affectedCourse = new List<Course>();
-        List<float> incrementRates = new List<float>();
+        // randomize affectedcourse
 
-        Boolean[] isCourseTaken = new Boolean[gameControllerScript.courseList.Count];
-        Array.Clear(isCourseTaken, 0, isCourseTaken.Length);
-
-        for (int i = 0; i < numOfAffectedCourse; i++)
-        {
             int courseIndex = Random.Range(1, gameControllerScript.courseList.Count) - 1;
-            while(isCourseTaken[courseIndex])
-            {
-                courseIndex = (courseIndex + 1) % gameControllerScript.courseList.Count;
-            }
-            affectedCourse.Add(gameControllerScript.courseList[courseIndex]);
-            incrementRates.Add(Random.Range(-3.0f, 5.0f));
-            isCourseTaken[courseIndex] = true;
-        }
+            Course affectedCourse = gameControllerScript.courseList[courseIndex];
+            float incrementRate = Random.Range(-3.0f, 5.0f);
 
         // instantiate group
-        this.groupInstances[index] = new Group(position, startTime, interval, prefabType, affectedCourse, incrementRates);
+        this.groupInstances[index] = new Group(position, startTime, interval, prefabType, affectedCourse, incrementRate);
         this.isInstantiated[index] = false;
     }
 
@@ -125,7 +111,8 @@ public class GroupScript : MonoBehaviour {
             {
                 GameObject group = Instantiate(groupPrefabs[g.getPrefabType()], tablePositions[g.getPosition()], Quaternion.identity);
 
-                group.GetComponent<Group>().setGroup(g.getPosition(), g.getStartTime(), g.getInterval(), g.getPrefabType(), g.getCourses(), g.getIncrementRates());
+                group.GetComponent<Group>().setGroup(g.getPosition(), g.getStartTime(), g.getInterval(), g.getPrefabType(), g.getCourse(), g.getIncrementRate());
+                group.GetComponent<Group>().incrementRateText.gameObject.SetActive(false);
                 group.transform.SetParent(this.groupCanvas);
 
                 Destroy(group, g.getInterval());

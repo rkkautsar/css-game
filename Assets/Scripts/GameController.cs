@@ -66,19 +66,20 @@ public class GameController : MonoBehaviour {
 
     public void levelEnded()
     {
-        // get final ip from player
-        // int ip = player.getIp();
+        double ip = getIP();
 
         // go to other scene
 
         // check if passed current level
-        /**
         if ((ip - 2.0) > 1e-9)
         {
             currentLevel++;
             setLevel(currentLevel);
         }
-        **/
+        else
+        {
+            setLevel(currentLevel);
+        }
     }
 
     public void setLevel(int level)

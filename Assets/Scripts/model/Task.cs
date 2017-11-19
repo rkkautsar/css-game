@@ -43,6 +43,16 @@ public class Task : MonoBehaviour
 		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 	}
 
+    public string getTitle()
+    {
+        return title;
+    }
+
+    public void updateSpeed(float incrementRate)
+    {
+        speed += incrementRate;
+    }
+
 	// Use this for initialization
 	void Start ()
 	{

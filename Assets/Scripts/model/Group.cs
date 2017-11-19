@@ -9,37 +9,38 @@ public class Group : MonoBehaviour {
     public int position;
     public float startTime;
     public float interval;
-    public List<Course> courses;
-    public List<float> incrementRates;
+    public Course course;
+    public float incrementRate;
 
     public Text incrementRateText;
 
+    public GameController gameControllerScript;
+
     public Group() {}
 
-    public Group(int position_, float startTime_, float interval_, int prefabType_, List<Course> courses_, List<float> incrementRates_)
+    public Group(int position_, float startTime_, float interval_, int prefabType_, Course course_, float incrementRate_)
     {
         position = position_;
         startTime = startTime_;
         interval = interval_;
         prefabType = prefabType_;
-        courses = courses_;
-        incrementRates = incrementRates_;
+        course = course_;
+        incrementRate = incrementRate_;
     }
 
-    public void setGroup(int position_, float startTime_, float interval_, int prefabType_, List<Course> courses_, List<float> incrementRates_)
+    public void setGroup(int position_, float startTime_, float interval_, int prefabType_, Course course_, float incrementRate_)
     {
         position = position_;
         startTime = startTime_;
         interval = interval_;
         prefabType = prefabType_;
-        courses = courses_;
-        incrementRates = incrementRates_;
+        course = course_;
+        incrementRate = incrementRate_;
     }
 
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -79,26 +80,68 @@ public class Group : MonoBehaviour {
         return prefabType;
     }
 
-    public List<Course> getCourses()
+    public Course getCourse()
     {
-        return courses;
+        return course;
     }
 
-    public List<float> getIncrementRates()
+    public float getIncrementRate()
     {
-        return incrementRates;
+        return incrementRate;
     }
 
 	void OnTriggerEnter2D(Collider2D other) {
-        // update text
-        incrementRateText.text = "+2.00";
-        incrementRateText.color = Color.green;
+        float affectedIncrementRate = 0.0f;
 
-        startBlinking();
+        if (gameControllerScript.activeTasks != null && course != null)
+        {
+            for (int i = 0; i < gameControllerScript.activeTasks.Count; i++)
+            {
+                Task currentTask = gameControllerScript.activeTasks[i];
+                string taskTitle = currentTask.getTitle();
+
+                if (taskTitle.Contains(course.getTitle()))
+                {
+                    affectedIncrementRate = incrementRate;
+                    gameControllerScript.activeTasks[i].updateSpeed(incrementRate);
+                }
+            }
+        }
+
+        incrementRateText.text = "" + affectedIncrementRate;
+        if (affectedIncrementRate > 0)
+        {
+            incrementRateText.color = Color.green;
+        }
+        else if (affectedIncrementRate < 0)
+        {
+            incrementRateText.color = Color.red;
+        }
+        else
+        {
+            incrementRateText.color = Color.black;
+        }
+        
+        StartBlinking();
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-        stopBlinking();
+        // reset speed on all active tasks
+        if (gameControllerScript.activeTasks != null && course != null)
+        {
+            for (int i = 0; i < gameControllerScript.activeTasks.Count; i++)
+            {
+                Task currentTask = gameControllerScript.activeTasks[i];
+                string taskTitle = currentTask.getTitle();
+
+                if (taskTitle.Contains(course.getTitle()))
+                {
+                    gameControllerScript.activeTasks[i].updateSpeed(-incrementRate);
+                }
+            }
+        }
+
+        StopBlinking();
 	}
 
     IEnumerator Blink()
@@ -122,13 +165,13 @@ public class Group : MonoBehaviour {
         }
     }
     
-    void startBlinking()
+    void StartBlinking()
     {
-        stopBlinking();
+        StopBlinking();
         StartCoroutine("Blink");
     }
 
-    void stopBlinking()
+    void StopBlinking()
     {
         incrementRateText.gameObject.SetActive(false);
         StopAllCoroutines();
