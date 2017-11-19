@@ -24,6 +24,7 @@ public class Task : MonoBehaviour
 	public Task (string title_, float startWeight_, double startTime_, double endTime_)
 	{
 		title = title_;
+		weight = startWeight_;
 		startWeight = startWeight_;
 		startTime = startTime_;
 		endTime = endTime_;
@@ -34,13 +35,15 @@ public class Task : MonoBehaviour
 
 	}
 
-	public void setValues (string title_, float startWeight_, double startTime_, double endTime_)
+	public void setValues (string title_, float startWeight_, double startTime_, double endTime_, Slider slider_)
 	{
 		title = title_;
 		startWeight = startWeight_;
+		weight = startWeight_;
 		startTime = startTime_;
 		endTime = endTime_;
-		//slider = GameObject.Find ("Slider").GetComponent<Slider> ();
+		slider = slider_;
+		slider.value = 1f;
 	}
 
     public string getTitle()
@@ -82,6 +85,8 @@ public class Task : MonoBehaviour
 			}
 			slider.value = (weight / startWeight);
 		}
+		slider.value = 0.1f;
+		yield return new WaitForSeconds (1f);
 		Kill ();
 	}
 

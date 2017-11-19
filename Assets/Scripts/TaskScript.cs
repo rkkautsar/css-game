@@ -54,7 +54,7 @@ public class TaskScript : MonoBehaviour {
 			if (time > task.startTime && time < task.endTime && !task.isVisible) {
 				numVisible++;
 				GameObject taskObj = Instantiate (taskUI, transform);
-				taskObj.GetComponent<Task> ().setValues (task.title, task.weight, task.startTime, task.endTime);
+				taskObj.GetComponent<Task> ().setValues (task.title, task.weight, task.startTime, task.endTime, taskObj.GetComponentInChildren<Slider> ());
 				taskObj.GetComponentInChildren <Text> ().text = task.title;
 				task.isVisible = true;
 			}
