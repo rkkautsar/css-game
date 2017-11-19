@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEditor;
 using System;
 
@@ -12,7 +13,7 @@ public class Group : MonoBehaviour {
     public List<Course> courses;
     public List<float> incrementRates;
 
-    public GameObject go;
+    public Text incrementRateText;
 
     public Group() {}
 
@@ -90,10 +91,47 @@ public class Group : MonoBehaviour {
     }
 
 	void OnTriggerEnter2D(Collider2D other) {
-		EditorUtility.DisplayDialog ("enter trigger " + this.getCourses() + " " + this.getIncrementRates(), other.gameObject.tag, "asd", "asd");
+        // update text
+        incrementRateText.text = "+2.00";
+        incrementRateText.color = Color.green;
+
+        startBlinking();
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		EditorUtility.DisplayDialog ("exit trigger" + this.getCourses() + " " + this.getIncrementRates(), other.gameObject.tag, "asd", "asd");
+        stopBlinking();
 	}
+
+    IEnumerator Blink()
+    {
+        Boolean isVisible = false;
+        while (true)
+        {
+            switch (isVisible)
+            {
+                case true:
+                    isVisible = !isVisible;
+                    incrementRateText.gameObject.SetActive(false);
+                    yield return new WaitForSeconds(0.5f);
+                    break;
+                case false:
+                    isVisible = !isVisible;
+                    incrementRateText.gameObject.SetActive(true);
+                    yield return new WaitForSeconds(0.5f);
+                    break;
+            }
+        }
+    }
+    
+    void startBlinking()
+    {
+        stopBlinking();
+        StartCoroutine("Blink");
+    }
+
+    void stopBlinking()
+    {
+        incrementRateText.gameObject.SetActive(false);
+        StopAllCoroutines();
+    }
 }
