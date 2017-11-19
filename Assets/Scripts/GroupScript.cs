@@ -40,7 +40,7 @@ public class GroupScript : MonoBehaviour {
         int position = Random.Range(0, tablePositions.Length);
         float startTime = Random.Range(0, gameControllerScript.maxTimePerLevel);
 		float interval = Random.Range(intervalBoundary.minimum, intervalBoundary.maximum);
-        int prefabType = Random.Range(0, groupPrefabs.Length);
+        int prefabType = Random.Range(0, 1);
 
         // randomize affectedcourse
 

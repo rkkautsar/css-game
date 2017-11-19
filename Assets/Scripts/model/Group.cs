@@ -92,7 +92,6 @@ public class Group : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
         float affectedIncrementRate = 0.0f;
-
         if (gameControllerScript.activeTasks != null && course != null)
         {
             for (int i = 0; i < gameControllerScript.activeTasks.Count; i++)
@@ -100,7 +99,7 @@ public class Group : MonoBehaviour {
                 Task currentTask = gameControllerScript.activeTasks[i];
                 string taskTitle = currentTask.getTitle();
 
-                if (taskTitle.Contains(course.getTitle()))
+                if (taskTitle.Contains(course.getCode()))
                 {
                     affectedIncrementRate = incrementRate;
                     gameControllerScript.activeTasks[i].updateSpeed(incrementRate);
@@ -134,7 +133,7 @@ public class Group : MonoBehaviour {
                 Task currentTask = gameControllerScript.activeTasks[i];
                 string taskTitle = currentTask.getTitle();
 
-                if (taskTitle.Contains(course.getTitle()))
+                if (taskTitle.Contains(course.getCode()))
                 {
                     gameControllerScript.activeTasks[i].updateSpeed(-incrementRate);
                 }
