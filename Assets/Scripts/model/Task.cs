@@ -16,6 +16,7 @@ public class Task : MonoBehaviour
 	public bool isVisible = false;
 	public bool isStarted = false;
 	public Slider slider;
+	public bool onGoing;
 
 	IEnumerator countd = null;
 
@@ -28,6 +29,7 @@ public class Task : MonoBehaviour
 		startWeight = startWeight_;
 		startTime = startTime_;
 		endTime = endTime_;
+		onGoing = false;
 	}
 
 	public Task ()
@@ -44,6 +46,7 @@ public class Task : MonoBehaviour
 		endTime = endTime_;
 		slider = slider_;
 		slider.value = 1f;
+		onGoing = false;
 	}
 
     public string getTitle()
@@ -70,12 +73,14 @@ public class Task : MonoBehaviour
 
 	public void Kill ()
 	{
+		onGoing = false;
 		Destroy (gameObject);
 	}
 
 	IEnumerator Countdown ()
 	{
 		slider.value = (weight/startWeight);
+		onGoing = true;
 		while (weight > 0) {
 			yield return new WaitForSeconds (1f);
 			Debug.Log (weight + " " + speed);

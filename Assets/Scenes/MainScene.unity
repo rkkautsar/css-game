@@ -516,7 +516,7 @@ MonoBehaviour:
   taskUI: {fileID: 1842136401667970, guid: 6ea785c549cc1304e9d5be6d0e2ffc41, type: 2}
   visibleTasks: {fileID: 0}
   taskCanvas: {fileID: 790012754}
-  activeTasks: []
+  gameControllerScript: {fileID: 1587355084}
 --- !u!1 &311482947
 GameObject:
   m_ObjectHideFlags: 0
