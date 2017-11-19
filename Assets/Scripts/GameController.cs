@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
 	public Text timerText;
+	public Text IPText;
 	public List<Course> courseList;
 	public List<Task> activeTasks;
     public int maxTimePerLevel = 300;
@@ -16,6 +17,9 @@ public class GameController : MonoBehaviour {
 	public void Start () {
         setLevel(currentLevel);
 		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
+		IPText.text = "IP: " + getIP ().ToString();
+		InvokeRepeating ("changeIP", 1f, 1f);
+
 	}
 	
 	// Update is called once per frame
@@ -26,6 +30,10 @@ public class GameController : MonoBehaviour {
         {
             levelEnded();
         }
+	}
+
+	void changeIP() {
+		IPText.text = "IP: " + getIP ().ToString () + " - " + Time.timeSinceLevelLoad.ToString();
 	}
 
 	public double getIP() {
