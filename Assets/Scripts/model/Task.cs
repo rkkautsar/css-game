@@ -40,7 +40,7 @@ public class Task : MonoBehaviour
 		startWeight = startWeight_;
 		startTime = startTime_;
 		endTime = endTime_;
-		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
+		//slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 	}
 
     public string getTitle()

@@ -245,7 +245,7 @@ MonoBehaviour:
   position: 0
   startTime: 0
   interval: 0
-  incrementRates: []
+  incrementRate: 0
   incrementRateText: {fileID: 114470768074069878}
   gameControllerScript: {fileID: 0}
 --- !u!114 &114726286877517660
@@ -337,7 +337,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609715774706204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0480251, y: 2.19673, z: -1.8276461}
+  m_LocalPosition: {x: 4.0960503, y: 4.39346, z: -3.6552923}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224492627741239242}
@@ -346,6 +346,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.0480251, y: 2.19673}
+  m_AnchoredPosition: {x: 4.0960503, y: 4.39346}
   m_SizeDelta: {x: 4, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
