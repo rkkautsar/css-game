@@ -78,7 +78,7 @@ public class Task : MonoBehaviour
 		slider.value = (weight/startWeight);
 		while (weight > 0) {
 			yield return new WaitForSeconds (1f);
-			Debug.Log (weight);
+			Debug.Log (weight + " " + speed);
 			weight -= speed;
 			if (weight < 0) {
 				weight = 0;

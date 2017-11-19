@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour {
                 new Task("UAS - DDP", 30, 260, 300)
             };
 
-                List<Task> tasks2 = new List<Task> {
+            List<Task> tasks2 = new List<Task> {
                 new Task("Worksheet 1 - CAL", 5, 0, 60),
                 new Task("Kuis 1 - CAL", 10, 60, 110),
                 new Task("UTS - CAL", 30, 120, 150),
@@ -105,7 +105,7 @@ public class GameController : MonoBehaviour {
                 new Task("UAS - CAL", 30, 260, 300)
             };
 
-                List<Task> tasks3 = new List<Task> {
+            List<Task> tasks3 = new List<Task> {
                 new Task("Tugas - DISC", 10, 0, 50),
                 new Task("Ujian 1 - DISC", 15, 50, 100),
                 new Task("UTS - DISC", 20, 110, 140),
@@ -114,7 +114,7 @@ public class GameController : MonoBehaviour {
                 new Task("UAS - DISC", 25, 260, 300)
             };
 
-                List<Task> tasks4 = new List<Task> {
+            List<Task> tasks4 = new List<Task> {
                 new Task("Worksheet 1 - ALG", 10, 0, 60),
                 new Task("Worksheet 2 - ALG", 10, 60, 120),
                 new Task("UTS - ALG", 25, 130, 150),
@@ -123,7 +123,7 @@ public class GameController : MonoBehaviour {
                 new Task("UAS - ALG", 30, 260, 300)
             };
 
-                List<Task> tasks5 = new List<Task> {
+            List<Task> tasks5 = new List<Task> {
                 new Task("Praktikum 1 - PSD", 10, 0, 60),
                 new Task("Praktikum 2 - PSD", 10, 60, 120),
                 new Task("UTS - PSD", 20, 130, 150),
@@ -132,13 +132,20 @@ public class GameController : MonoBehaviour {
                 new Task("UAS - PSD", 30, 260, 300)
             };
 
-                courseList = new List<Course> {
+            courseList = new List<Course> {
                 new Course ("Dasar Dasar Pemrograman", "DDP", 6, tasks1),
                 new Course ("Calculus", "CAL", 3, tasks2),
                 new Course ("Discrete", "DISC", 3, tasks3),
                 new Course ("Algebra", "ALG", 3, tasks4),
                 new Course ("Pengantar Sistem Digital", "PSD", 5, tasks5)
             };
+
+            activeTasks = new List<Task>();
+            activeTasks.AddRange(tasks1);
+            activeTasks.AddRange(tasks2);
+            activeTasks.AddRange(tasks3);
+            activeTasks.AddRange(tasks4);
+            activeTasks.AddRange(tasks5);
         }
     }
 }
