@@ -6,14 +6,20 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
 	public Text timerText;
+	public Text IPText;
 	public List<Course> courseList;
-    public int maxTimePerLevel;
+	public List<Task> activeTasks;
+    public int maxTimePerLevel = 300;
     public int currentLevel = 1;
+	public int totalSKSLevel = 20;
 
 	// Use this for initialization
 	public void Start () {
         setLevel(currentLevel);
 		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
+		IPText.text = "IP: " + getIP ().ToString();
+		InvokeRepeating ("changeIP", 1f, 1f);
+
 	}
 	
 	// Update is called once per frame
@@ -24,6 +30,38 @@ public class GameController : MonoBehaviour {
         {
             levelEnded();
         }
+	}
+
+	void changeIP() {
+		IPText.text = "IP: " + getIP ().ToString () + " - " + Time.timeSinceLevelLoad.ToString();
+	}
+
+	public double getIP() {
+		// IP 4 = all tasks' weight == 0
+		double ip = 4;
+		for (int i = 0; i < courseList.Count; i++) {
+			Course course = courseList [i];
+			List<Task> tasks = course.tasks;
+			double jatah = (course.credits / (double) totalSKSLevel) * 4;
+			for (int j = 0; j < tasks.Count; j++) {
+				Task task = tasks [j];
+				if (task.endTime > Time.time) {
+					double decrement = (task.weight / 100) * jatah;
+					ip -= decrement;
+				}
+			}
+		}
+		print ("IP=" + ip + "\n");
+		return ip;
+	}
+
+	public void addActiveTask(Task task) {
+		
+		activeTasks.Add (task);
+	}
+
+	public void removeActiveTask(Task task) {
+		activeTasks.Remove (task);
 	}
 
     public void levelEnded()

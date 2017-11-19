@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114201735344802740}
   - component: {fileID: 114748728176442328}
   - component: {fileID: 114074645173019202}
-  - component: {fileID: 114385150668607568}
+  - component: {fileID: 114564836674435190}
   m_Layer: 5
   m_Name: TaskRevisikeX
   m_TagString: Untagged
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114385150668607568
+--- !u!114 &114564836674435190
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -146,6 +146,7 @@ MonoBehaviour:
   endTime: 0
   progress: 0
   isVisible: 0
+  isStarted: 0
   slider: {fileID: 0}
 --- !u!114 &114748728176442328
 MonoBehaviour:
