@@ -38,26 +38,18 @@ public class TaskScript : MonoBehaviour {
 			new Task("Tugas 1 DDP", 10f, 3, 10),
 			new Task("Tugas 2 DDP", 5f, 7, 12)
 		};
-		/**
-		for (int i = 0; i < activeTasks.Count; i++) {
-			GameObject button = Instantiate (taskUI, transform);
-			button.GetComponent<Assignment> ().setValues (activeTasks[i].title, activeTasks[i].weight, activeTasks[i].startTime, activeTasks[i].endTime);
-			
-		}
-		**/
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		double time = Time.time;
-		/**
 		foreach(Task task in activeTasks) {
 			//print ("now=" + time.ToString() + ", s=" + task.startTime.ToString() + ", e=" + task.endTime.ToString());
 			if (time > task.startTime && time < task.endTime && !task.isVisible) {
 				numVisible++;
 				GameObject taskObj = Instantiate (taskUI, transform);
 				taskObj.GetComponent<Task> ().setValues (task.title, task.weight, task.startTime, task.endTime);
-				taskObj.GetComponent<Text> ().text = task.title;
+				// taskObj.GetComponent<Text> ().text = task.title;
 				task.isVisible = true;
 			}
 
@@ -65,7 +57,6 @@ public class TaskScript : MonoBehaviour {
 				task.isVisible = false;
 			}
 		}
-		**/
 	}
 
 	public void StopAll ()
