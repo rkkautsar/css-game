@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Course {
-	string title;
-	string code;
-	int credits;
-	double grade;
-	string letterGrade;
+	public string title;
+	public string code;
+	public int credits;
+	public double grade;
+	public string letterGrade;
 
 	public List<Task> tasks;
 

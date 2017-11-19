@@ -7,23 +7,24 @@ using UnityEngine.UI;
 public class Task : MonoBehaviour
 {
 	public string title;
-	public float weight;
+	public float weight = 0;
 	public float startWeight;
 	public double score;
 	public double startTime;
 	public double endTime;
 	public double progress;
 	public bool isVisible = false;
+	public bool isStarted = false;
 	public Slider slider;
 
 	IEnumerator countd = null;
 
 	float speed = 1f;
 
-	public Task (string title_, float weight_, double startTime_, double endTime_)
+	public Task (string title_, float startWeight_, double startTime_, double endTime_)
 	{
 		title = title_;
-		weight = weight_;
+		startWeight = startWeight_;
 		startTime = startTime_;
 		endTime = endTime_;
 	}
@@ -33,12 +34,11 @@ public class Task : MonoBehaviour
 
 	}
 
-	public void setValues (string title_, float weight_, double startTime_, double endTime_)
+	public void setValues (string title_, float startWeight_, double startTime_, double endTime_)
 	{
 		title = title_;
-		weight = weight_;
+		startWeight = startWeight_;
 		startTime = startTime_;
-		startWeight = weight_;
 		endTime = endTime_;
 		slider = GameObject.Find ("Slider").GetComponent<Slider> ();
 	}
@@ -67,6 +67,9 @@ public class Task : MonoBehaviour
 			yield return new WaitForSeconds (1f);
 			Debug.Log (weight);
 			weight -= speed;
+			if (weight < 0) {
+				weight = 0;
+			}
 			slider.value = (weight / startWeight);
 		}
 		Kill ();
