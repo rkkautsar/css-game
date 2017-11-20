@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
 	public Text IPText;
 	public List<Course> courseList;
 	public List<Task> activeTasks;
-    public int maxTimePerLevel = 300;
+    public int maxTimePerLevel = 180;
     public int currentLevel = 1;
 	public int totalSKSLevel = 20;
 
@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour {
 	public void Start () {
         setLevel(currentLevel);
 		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
-		IPText.text = "IP: " + getIP ().ToString();
+		IPText.text = "IP: " + getIP().ToString();
 		InvokeRepeating ("changeIP", 1f, 1f);
 
 	}
@@ -33,7 +33,9 @@ public class GameController : MonoBehaviour {
 	}
 
 	void changeIP() {
-		IPText.text = "IP: " + getIP ().ToString () + " - " + Time.timeSinceLevelLoad.ToString();
+//		IPText.text = "IP: " + getIP ().ToString () + " - " + Time.timeSinceLevelLoad.ToString();
+		Debug.Log(getIP().ToString());
+		IPText.text = "IP: " + getIP ().ToString ();
 	}
 
 	public double getIP() {
@@ -45,13 +47,13 @@ public class GameController : MonoBehaviour {
 			double jatah = (course.credits / (double) totalSKSLevel) * 4;
 			for (int j = 0; j < tasks.Count; j++) {
 				Task task = tasks [j];
-				if (task.endTime > Time.time) {
+				if (task.endTime < Time.timeSinceLevelLoad) {
 					double decrement = (task.weight / 100) * jatah;
 					ip -= decrement;
 				}
 			}
 		}
-		print ("IP=" + ip + "\n");
+		//print ("IP=" + ip + "\n");
 		return ip;
 	}
 
