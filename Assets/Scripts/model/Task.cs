@@ -17,6 +17,7 @@ public class Task : MonoBehaviour
 	public bool isStarted = false;
 	public Slider slider;
 	public bool onGoing;
+	public bool isFinished = false;
 
 	IEnumerator countd = null;
 
@@ -92,6 +93,7 @@ public class Task : MonoBehaviour
 		}
 		slider.value = 0.1f;
 		yield return new WaitForSeconds (1f);
+		isFinished = true;
 		Kill ();
 	}
 

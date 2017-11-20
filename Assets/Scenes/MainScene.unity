@@ -2123,6 +2123,7 @@ GameObject:
   - component: {fileID: 844171151}
   - component: {fileID: 844171154}
   - component: {fileID: 844171155}
+  - component: {fileID: 844171156}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2322,7 +2323,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 844171147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d391d88de7d484345ae27649767c093b, type: 3}
   m_Name: 
@@ -2333,6 +2334,18 @@ MonoBehaviour:
   scale: 10
   target: {fileID: 1763061120}
   offset: {x: 0, y: 0, z: 0}
+--- !u!114 &844171156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 844171147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dae4fd0a09ba45fb95a0bbc495d223b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseSensitivity: 0.1
 --- !u!1 &898045239 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1656185795824990, guid: 5d7afb956a9760647bc215893b3042ea,
@@ -3488,7 +3501,7 @@ MonoBehaviour:
   timerText: {fileID: 1040433548}
   IPText: {fileID: 347252327}
   activeTasks: []
-  maxTimePerLevel: 10
+  maxTimePerLevel: 180
   currentLevel: 1
   totalSKSLevel: 20
 --- !u!114 &1587355085
@@ -3848,7 +3861,7 @@ Prefab:
     - target: {fileID: 114334362771281982, guid: 2ee56646f25c6bf4dade0bad39df7340,
         type: 2}
       propertyPath: maxTimePerLevel
-      value: 10
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2ee56646f25c6bf4dade0bad39df7340, type: 2}

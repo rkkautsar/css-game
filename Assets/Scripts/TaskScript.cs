@@ -51,6 +51,7 @@ public class TaskScript : MonoBehaviour {
 
 			if (time > task.endTime) {
 				task.isVisible = false;
+				// @TODO kurangin ipnya disini
 			}
 		}
 	}

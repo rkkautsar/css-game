@@ -50,7 +50,9 @@ public class GameController : MonoBehaviour {
 			double jatah = (course.credits / (double) totalSKSLevel) * 4;
 			for (int j = 0; j < tasks.Count; j++) {
 				Task task = tasks [j];
-				if (task.endTime < Time.timeSinceLevelLoad) {
+				print ("///\n");
+				if (task.endTime < Time.timeSinceLevelLoad && !task.isFinished) {
+					print (task.title + " " + task.isFinished + "\n");
 					double decrement = (task.weight / 100) * jatah;
 					ip -= decrement;
 				}
@@ -96,7 +98,7 @@ public class GameController : MonoBehaviour {
         {
             List<Task> tasks1 = new List<Task> {
 			    // judul tugas, bobot (%), start time (detik), end time (detik)
-			    new Task("Tugas 1 - DDP", 5, 0, 60),
+			    new Task("Tugas 1 - DDP", 5, 0, 5),
                 new Task("Kuis 1 - DDP", 10, 60, 110),
                 new Task("UTS - DDP", 25, 120, 150),
                 new Task("Tugas 2 - DDP", 15, 155, 210),
