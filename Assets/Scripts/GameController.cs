@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	public void Start () {
         setLevel(currentLevel);
+		gameObject.SendMessage ("resetPause");
 		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
 		IPText.text = "IP: " + getIP().ToString();
 		InvokeRepeating ("changeIP", 1f, 1f);
