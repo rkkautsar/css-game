@@ -33,8 +33,6 @@ public class GameController : MonoBehaviour {
 	}
 
 	void changeIP() {
-//		IPText.text = "IP: " + getIP ().ToString () + " - " + Time.timeSinceLevelLoad.ToString();
-		Debug.Log(getIP().ToString());
 		IPText.text = "IP: " + getIP ().ToString ();
 	}
 
