@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class GameController : MonoBehaviour {
     public int maxTimePerLevel = 180;
     public int currentLevel = 1;
 	public int totalSKSLevel = 20;
+	public static double currentIP = 4;
 
 	// Use this for initialization
 	public void Start () {
@@ -30,11 +32,13 @@ public class GameController : MonoBehaviour {
         if (Time.timeSinceLevelLoad > maxTimePerLevel)
         {
             levelEnded();
+			Debug.Log ("udah kelar oi");
         }
 	}
 
 	void changeIP() {
 		IPText.text = "IP: " + getIP ().ToString ();
+		AppData.currentIP = getIP ();
 	}
 
 	public double getIP() {
@@ -74,8 +78,11 @@ public class GameController : MonoBehaviour {
         // check if passed current level
         if ((ip - 2.0) > 1e-9)
         {
-            currentLevel++;
-            setLevel(currentLevel);
+//            currentLevel++;
+
+//            setLevel(currentLevel);
+
+			SceneManager.LoadScene("EndScene");
         }
         else
         {
