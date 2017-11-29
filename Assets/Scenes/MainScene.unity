@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dae4fd0a09ba45fb95a0bbc495d223b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 0.1
+  mouseSensitivity: 0.06
 --- !u!1 &898045239 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1656185795824990, guid: 5d7afb956a9760647bc215893b3042ea,

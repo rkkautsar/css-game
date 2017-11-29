@@ -19,7 +19,7 @@ public class PanningCamera : MonoBehaviour {
 
 		if (Input.GetMouseButton(0)) {
 			Vector3 delta = Input.mousePosition - lastPosition;
-			transform.Translate(delta.x * mouseSensitivity, delta.y * mouseSensitivity, 0.0f);
+			transform.Translate(-delta.x * mouseSensitivity, -delta.y * mouseSensitivity, 0.0f);
 			lastPosition = Input.mousePosition;
 		}
 	}
