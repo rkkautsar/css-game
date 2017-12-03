@@ -50,7 +50,7 @@ public class GameController : MonoBehaviour {
 			double jatah = (course.credits / (double) totalSKSLevel) * 4;
 			for (int j = 0; j < tasks.Count; j++) {
 				Task task = tasks [j];
-				print ("///\n");
+				//print ("///\n");
 				if (task.endTime < Time.timeSinceLevelLoad && !task.isFinished) {
 					print (task.title + " " + task.isFinished + "\n");
 					double decrement = (task.weight / 100) * jatah;

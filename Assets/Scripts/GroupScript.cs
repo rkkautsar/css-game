@@ -21,7 +21,7 @@ public class GroupScript : MonoBehaviour {
 
     public GameObject emptyTable;
     public Transform groupCanvas;
-	public int numberOfGroup = 50;
+	public int numberOfGroup;
     public Count intervalBoundary = new Count(5, 10);
     public int numberOfTable = 6;
     public GameObject[] groups;
@@ -40,13 +40,13 @@ public class GroupScript : MonoBehaviour {
         int position = Random.Range(0, tablePositions.Length);
         float startTime = Random.Range(0, gameControllerScript.maxTimePerLevel);
 		float interval = Random.Range(intervalBoundary.minimum, intervalBoundary.maximum);
-        int prefabType = Random.Range(0, 1);
+        int prefabType = Random.Range(0, groupPrefabs.Length);
 
         // randomize affectedcourse
 
-            int courseIndex = Random.Range(1, gameControllerScript.courseList.Count) - 1;
-            Course affectedCourse = gameControllerScript.courseList[courseIndex];
-            float incrementRate = Random.Range(-3.0f, 5.0f);
+        int courseIndex = Random.Range(1, gameControllerScript.courseList.Count) - 1;
+        Course affectedCourse = gameControllerScript.courseList[courseIndex];
+        float incrementRate = Random.Range(-3.0f, 5.0f);
 
         // instantiate group
         this.groupInstances[index] = new Group(position, startTime, interval, prefabType, affectedCourse, incrementRate);
