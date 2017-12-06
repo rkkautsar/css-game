@@ -3740,7 +3740,7 @@ MonoBehaviour:
   timerText: {fileID: 1040433548}
   IPText: {fileID: 347252327}
   activeTasks: []
-  maxTimePerLevel: 180
+  maxTimePerLevel: 20
   currentLevel: 1
   totalSKSLevel: 20
   timerUI: {fileID: 655102713}
@@ -4266,7 +4266,7 @@ Prefab:
     - target: {fileID: 114334362771281982, guid: 2ee56646f25c6bf4dade0bad39df7340,
         type: 2}
       propertyPath: maxTimePerLevel
-      value: 180
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114334362771281982, guid: 2ee56646f25c6bf4dade0bad39df7340,
         type: 2}

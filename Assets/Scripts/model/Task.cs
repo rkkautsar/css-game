@@ -89,7 +89,6 @@ public class Task : MonoBehaviour
                 {
                     task.weight = this.weight;
                     task.isFinished = true;
-                    Debug.Log("updated");
                 }
             }
         }

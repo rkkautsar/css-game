@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour {
 	void changeIP() {
 		IPText.text = "IP: " + getIP ().ToString ("F1");
         //Debug.Log(IPText.text + " hehe");
-		AppData.currentIP = getIP ();
+		// AppData.currentIP = getIP ();
 	}
 
 	public double getIP() {
@@ -143,22 +143,22 @@ public class GameController : MonoBehaviour {
     public void levelEnded()
     {
         double ip = getIP();
-
+        //Debug.Log(ip);
+        AppData.currentIP = ip;
         // go to other scene
 
         // check if passed current level
         if ((ip - 2.0) > 1e-9)
         {
-//            currentLevel++;
+            currentLevel++;
 
-//            setLevel(currentLevel);
-
-			SceneManager.LoadScene("EndScene");
+            setLevel(currentLevel);			
         }
         else
         {
             setLevel(currentLevel);
         }
+        SceneManager.LoadScene("EndScene");
     }
 
     public void setLevel(int level)

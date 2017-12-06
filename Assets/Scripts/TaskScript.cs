@@ -68,7 +68,6 @@ public class TaskScript : MonoBehaviour {
                         {
                             t.weight = currentTask.weight;
                             t.isFinished = true;
-                            Debug.Log("updated");
                         }
                     }
                 }

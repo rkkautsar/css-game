@@ -9,6 +9,7 @@ public class EndGameScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //Debug.Log("Haha");
 		IPText.text = "Your IP: " + AppData.currentIP;
 	}
 	
