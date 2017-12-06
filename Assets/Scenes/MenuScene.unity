@@ -235,6 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd70d3491edb549cab987c542f28153e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  player: {fileID: 0}
 --- !u!224 &348342672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -402,7 +404,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 348342671}
-        m_MethodName: loadMainScene
+        m_MethodName: loadTutorialScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

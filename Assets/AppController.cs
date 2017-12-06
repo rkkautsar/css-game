@@ -32,6 +32,11 @@ public class AppController : MonoBehaviour {
         SceneManager.LoadScene("MenuScene");
     }
 
+	public void loadTutorialScene()
+	{
+		SceneManager.LoadScene("TutorialScene");
+	}
+
     public void resumeOnClick()
     {
         if (canvas.gameObject.activeInHierarchy == false)
