@@ -18,10 +18,11 @@ public class Task : MonoBehaviour
 	public Slider slider;
 	public bool onGoing;
 	public bool isFinished = false;
+    public GameController gameControllerScript;
 
 	IEnumerator countd = null;
 
-	float speed = 1f;
+    float speed = 1f;
 
 	public Task (string title_, float startWeight_, float startTime_, float endTime_)
 	{
@@ -31,6 +32,7 @@ public class Task : MonoBehaviour
 		startTime = startTime_;
 		endTime = endTime_;
 		onGoing = false;
+        isFinished = false;
 	}
 
 	public Task ()
@@ -38,7 +40,7 @@ public class Task : MonoBehaviour
 
 	}
 
-	public void setValues (string title_, float startWeight_, float startTime_, float endTime_, Slider slider_)
+	public void setValues (string title_, float startWeight_, float startTime_, float endTime_, Slider slider_, GameController _gameControllerScript)
 	{
 		title = title_;
 		startWeight = startWeight_;
@@ -48,6 +50,8 @@ public class Task : MonoBehaviour
 		slider = slider_;
 		slider.value = 1f;
 		onGoing = false;
+        gameControllerScript = _gameControllerScript;
+        isFinished = false;
 	}
 
     public string getTitle()
@@ -75,7 +79,22 @@ public class Task : MonoBehaviour
 	public void Kill ()
 	{
 		onGoing = false;
-		Destroy (gameObject);
+
+        // update value
+        foreach (Course course in gameControllerScript.courseList)
+        {
+            foreach (Task task in course.tasks)
+            {
+                if (task.title == this.title)
+                {
+                    task.weight = this.weight;
+                    task.isFinished = true;
+                    Debug.Log("updated");
+                }
+            }
+        }
+
+        Destroy (gameObject);
 	}
 
 	IEnumerator Countdown ()
@@ -84,7 +103,7 @@ public class Task : MonoBehaviour
 		onGoing = true;
 		while (weight > 0) {
 			yield return new WaitForSeconds (1f);
-			Debug.Log (weight + " " + speed);
+			//Debug.Log ("<<<<< " + weight + " " + speed);
 			weight -= speed;
 			if (weight < 0) {
 				weight = 0;

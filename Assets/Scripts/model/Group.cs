@@ -98,7 +98,7 @@ public class Group : MonoBehaviour {
             {
                 Task currentTask = gameControllerScript.activeTasks[i];
                 string taskTitle = currentTask.getTitle();
-                Debug.Log(course.getCode() + " " + taskTitle);
+                //Debug.Log(course.getCode() + " " + taskTitle);
 
                 if (taskTitle.Contains(course.getCode()))
                 {

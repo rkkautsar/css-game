@@ -33,34 +33,102 @@ public class GameController : MonoBehaviour {
         if (Time.timeSinceLevelLoad > maxTimePerLevel)
         {
             levelEnded();
-			Debug.Log ("udah kelar oi");
+			//Debug.Log ("udah kelar oi");
         }
 	}
 
 	void changeIP() {
-		IPText.text = "IP: " + getIP ().ToString ();
+		IPText.text = "IP: " + getIP ().ToString ("F1");
+        //Debug.Log(IPText.text + " hehe");
 		AppData.currentIP = getIP ();
 	}
 
 	public double getIP() {
 		// IP 4 = all tasks' weight == 0
-		double ip = 4;
-		for (int i = 0; i < courseList.Count; i++) {
-			Course course = courseList [i];
-			List<Task> tasks = course.tasks;
-			double jatah = (course.credits / (double) totalSKSLevel) * 4;
-			for (int j = 0; j < tasks.Count; j++) {
-				Task task = tasks [j];
+		//double ip = 4;
+		//for (int i = 0; i < courseList.Count; i++) {
+			//Course course = courseList [i];
+			//List<Task> tasks = course.tasks;
+			//double jatah = (course.credits / (double) totalSKSLevel) * 4;
+			//for (int j = 0; j < tasks.Count; j++) {
+				//Task task = tasks [j];
 				//print ("///\n");
-				if (task.endTime < Time.timeSinceLevelLoad && !task.isFinished) {
-					print (task.title + " " + task.isFinished + "\n");
-					double decrement = (task.weight / 100) * jatah;
-					ip -= decrement;
-				}
-			}
-		}
+				//if (task.endTime < Time.timeSinceLevelLoad && !task.isFinished) {
+					//print (task.title + " " + task.isFinished + "\n");
+					//double decrement = (task.weight / 100) * jatah;
+					//ip -= decrement;
+				//}
+			//}
+		//}
 		//print ("IP=" + ip + "\n");
-		return ip;
+        double totalMutu = 0f;
+        int creditsTaken = 0;
+        //Debug.Log("=================");
+        foreach (Course course in courseList) {
+            creditsTaken += course.credits;
+
+            double totalScore = 0f;
+            double weightTaken = 0f;
+
+            foreach (Task task in course.tasks)
+            {
+                // if a task already up
+                if (task.isFinished)
+                {
+                    //Debug.Log(task.title + " >>>>> " + task.startWeight + " " + task.weight);
+                    totalScore += (task.startWeight - task.weight);
+                    weightTaken += task.startWeight;
+                }
+            }
+            
+            // if not a single task is end yet, assume it is 4
+            if (weightTaken < 1e-9)
+            {
+                totalMutu += 4f * course.credits;
+            }
+            else
+            {
+                double score = totalScore / weightTaken * 100;
+
+                if (score - 85f > 1e-9)
+                {
+                    totalMutu += 4f * course.credits;
+                }
+                else if (score - 80f > 1e-9)
+                {
+                    totalMutu += 3.7f * course.credits;
+                }
+                else if (score - 75f > 1e-9)
+                {
+                    totalMutu += 3.3f * course.credits;
+                }
+                else if (score - 65f > 1e-9)
+                {
+                    totalMutu += 2.7f * course.credits;
+                }
+                else if (score - 60f > 1e-9)
+                {
+                    totalMutu += 2.3f * course.credits;
+                }
+                else if (score - 55f > 1e-9)
+                {
+                    totalMutu += 2f * course.credits;
+                }
+                else if (score - 50f > 1e-9)
+                {
+                    totalMutu += 1.7f * course.credits;
+                }
+                else if (score - 40f > 1e-9)
+                {
+                    totalMutu += 1f * course.credits;
+                }
+            }
+        }
+
+        double ip = (double)totalMutu / (double)creditsTaken;
+        //Debug.Log(ip);
+        //Debug.Log("========end========");
+        return ip;
 	}
 
 	public void addActiveTask(Task task) {
@@ -101,20 +169,20 @@ public class GameController : MonoBehaviour {
             List<Task> tasks1 = new List<Task> {
 			    // judul tugas, bobot (%), start time (detik), end time (detik)
 			    new Task("Tugas 1 - DDP", 5, 0, 5),
-                new Task("Kuis 1 - DDP", 10, 60, 110),
-                new Task("UTS - DDP", 25, 120, 150),
-                new Task("Tugas 2 - DDP", 15, 155, 210),
-                new Task("Kuis 2  - DDP", 15, 210, 250),
-                new Task("UAS - DDP", 30, 260, 300)
+                new Task("Kuis 1 - DDP", 10, 30, 550),
+                new Task("UTS - DDP", 25, 60, 75),
+                new Task("Tugas 2 - DDP", 15, 78, 105),
+                new Task("Kuis 2  - DDP", 15, 105, 125),
+                new Task("UAS - DDP", 30, 130, 180)
             };
 
             List<Task> tasks2 = new List<Task> {
-                new Task("Worksheet 1 - CAL", 5, 0, 60),
-                new Task("Kuis 1 - CAL", 10, 60, 110),
-                new Task("UTS - CAL", 30, 120, 150),
-                new Task("Worksheet 2 - CAL", 5, 150, 210),
-                new Task("Kuis 2  - CAL", 20, 210, 250),
-                new Task("UAS - CAL", 30, 260, 300)
+                new Task("Worksheet 1 - CAL", 5, 0, 30),
+                new Task("Kuis 1 - CAL", 10, 30, 55),
+                new Task("UTS - CAL", 30, 60, 75),
+                new Task("Worksheet 2 - CAL", 5, 75, 105),
+                new Task("Kuis 2  - CAL", 20, 105, 125),
+                new Task("UAS - CAL", 30, 130, 180)
             };
 
             List<Task> tasks3 = new List<Task> {
@@ -127,21 +195,21 @@ public class GameController : MonoBehaviour {
             };
 
             List<Task> tasks4 = new List<Task> {
-                new Task("Worksheet 1 - ALG", 10, 0, 60),
-                new Task("Worksheet 2 - ALG", 10, 60, 120),
+                new Task("Worksheet 1 - ALG", 10, 0, 30),
+                new Task("Worksheet 2 - ALG", 10, 30, 60),
                 new Task("UTS - ALG", 25, 130, 150),
-                new Task("Worksheet 3 - ALG - DDP", 10, 150, 210),
-                new Task("Kuis - ALG", 15, 210, 250),
-                new Task("UAS - ALG", 30, 260, 300)
+                new Task("Worksheet 3 - ALG - DDP", 10, 75, 105),
+                new Task("Kuis - ALG", 15, 105, 125),
+                new Task("UAS - ALG", 30, 130, 180)
             };
 
             List<Task> tasks5 = new List<Task> {
-                new Task("Praktikum 1 - PSD", 10, 0, 60),
-                new Task("Praktikum 2 - PSD", 10, 60, 120),
-                new Task("UTS - PSD", 20, 130, 150),
-                new Task("Praktikum 3 - PSD", 10, 150, 210),
-                new Task("Tugas Akhir  - PSD", 20, 210, 240),
-                new Task("UAS - PSD", 30, 260, 300)
+                new Task("Praktikum 1 - PSD", 10, 0, 30),
+                new Task("Praktikum 2 - PSD", 10, 30, 60),
+                new Task("UTS - PSD", 20, 65, 75),
+                new Task("Praktikum 3 - PSD", 10, 75, 105),
+                new Task("Tugas Akhir  - PSD", 20, 105, 120),
+                new Task("UAS - PSD", 30, 130, 180)
             };
 
             courseList = new List<Course> {
