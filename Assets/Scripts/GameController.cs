@@ -95,6 +95,7 @@ public class GameController : MonoBehaviour {
 
     public void setLevel(int level)
     {
+        GameObject.Find("Dialog").transform.localScale = new Vector3(0, 0, 0);
         if (level == 1)
         {
             List<Task> tasks1 = new List<Task> {

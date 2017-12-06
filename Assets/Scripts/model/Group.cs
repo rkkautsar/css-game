@@ -123,6 +123,12 @@ public class Group : MonoBehaviour {
         }
         
         StartBlinking();
+
+        // start dialog animation
+        GameObject dialog = GameObject.Find("Dialog");
+
+        dialog.transform.localScale = new Vector3(0.1819f, 0.1879f, 1);
+        dialog.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y + 3, -1);
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
@@ -142,6 +148,9 @@ public class Group : MonoBehaviour {
         }
 
         StopBlinking();
+
+        // hide dialog animation
+        GameObject.Find("Dialog").transform.localScale = new Vector3(0, 0, 0);
 	}
 
     IEnumerator Blink()
