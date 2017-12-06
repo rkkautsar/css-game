@@ -234,6 +234,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114790319111515426, guid: c09bcdc80ed7b854a908e81479a8c149,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3109d469b0ced3e41b723c7f5e4865b7,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c09bcdc80ed7b854a908e81479a8c149, type: 2}
   m_IsPrefabParent: 0
@@ -381,7 +387,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 284239416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 479, y: 202, z: 0}
+  m_LocalPosition: {x: 407, y: 155, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1040433547}
@@ -1194,6 +1200,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114247374795863848, guid: c2123eed980bb164a98349cca23e54ba,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0dd8f12e281e7fd47b53cfbc4c0eb6ce,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2123eed980bb164a98349cca23e54ba, type: 2}
   m_IsPrefabParent: 0
@@ -1299,6 +1311,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114150764221195116, guid: 08d10eab42402714eb40a6ea712f189d,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e0872c02534447441b0f36e01d7bb5a3,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08d10eab42402714eb40a6ea712f189d, type: 2}
   m_IsPrefabParent: 0
@@ -1404,6 +1422,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114401750282537042, guid: 8f69b0d824c2e8b4cb01f14653b714e1,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 78412734803cd184d93b565495915d2c,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f69b0d824c2e8b4cb01f14653b714e1, type: 2}
   m_IsPrefabParent: 0
@@ -1446,7 +1470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emptyTable: {fileID: 1265808670955254, guid: e27f19e4bb71d6c4b86f8812b9458061, type: 2}
   groupCanvas: {fileID: 790012754}
-  numberOfGroup: 60
+  numberOfGroup: 100
   intervalBoundary:
     maximum: 10
     minimum: 5
@@ -2629,6 +2653,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114426925065150432, guid: 5d7afb956a9760647bc215893b3042ea,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f3ff96c89a5681b4094872a6f7679660,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d7afb956a9760647bc215893b3042ea, type: 2}
   m_IsPrefabParent: 0
@@ -2808,6 +2838,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114953912888887202, guid: 6a469d606be0bf848a44adc0927f340e,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d592c99ae46d3f741bd7d686773cdea8,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6a469d606be0bf848a44adc0927f340e, type: 2}
   m_IsPrefabParent: 0
@@ -2913,6 +2949,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114770363156467384, guid: 3e04bc307d651de4c97e6a5745c6573c,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19b497b8080201345b829da4de525746,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e04bc307d651de4c97e6a5745c6573c, type: 2}
   m_IsPrefabParent: 0
@@ -3354,6 +3396,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114478892567518804, guid: 67963f1a7b81b8f45bc7c6bad8744749,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9eb590337779b59418d984b8b57d83d6,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67963f1a7b81b8f45bc7c6bad8744749, type: 2}
   m_IsPrefabParent: 0
@@ -3634,6 +3682,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114632936453310454, guid: 552d4c438558e0144a4ca6d9bf5a56b4,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd1d678b0a9782149817618f053b259c,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 552d4c438558e0144a4ca6d9bf5a56b4, type: 2}
   m_IsPrefabParent: 0
@@ -3971,6 +4025,12 @@ Prefab:
       propertyPath: gameControllerScript
       value: 
       objectReference: {fileID: 1587355084}
+    - target: {fileID: 114887273301094064, guid: 1d2e27f3168aadb48bd522820fc09a92,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e719912b4d6a03a47b446be502167c7d,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d2e27f3168aadb48bd522820fc09a92, type: 2}
   m_IsPrefabParent: 0
