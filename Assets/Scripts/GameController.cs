@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour {
 	}
 
 	void changeIP() {
-		IPText.text = "IP: " + getIP ().ToString ("F1");
+		IPText.text = "IP: " + getIP ().ToString ("F2");
         //Debug.Log(IPText.text + " hehe");
 		// AppData.currentIP = getIP ();
 	}

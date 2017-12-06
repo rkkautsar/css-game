@@ -108,7 +108,7 @@ public class Group : MonoBehaviour {
             }
         }
 
-        incrementRateText.text = "" + affectedIncrementRate;
+        incrementRateText.text = affectedIncrementRate.ToString("F2");
         if (affectedIncrementRate > 0)
         {
             incrementRateText.color = Color.green;
