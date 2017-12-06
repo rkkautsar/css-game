@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-	public Text timerText;
 	public Text IPText;
 	public List<Course> courseList;
 	public List<Task> activeTasks;
@@ -20,7 +19,6 @@ public class GameController : MonoBehaviour {
 	public void Start () {
         setLevel(currentLevel);
 		gameObject.SendMessage ("resetPause");
-		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
 		IPText.text = "IP: " + getIP().ToString();
 		InvokeRepeating ("changeIP", 1f, 1f);
 
@@ -28,7 +26,6 @@ public class GameController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
 		timerUI.value = (maxTimePerLevel - Time.timeSinceLevelLoad) / maxTimePerLevel;
         if (Time.timeSinceLevelLoad > maxTimePerLevel)
         {
@@ -60,6 +57,7 @@ public class GameController : MonoBehaviour {
 				//}
 			//}
 		//}
+
 		//print ("IP=" + ip + "\n");
         double totalMutu = 0f;
         int creditsTaken = 0;
@@ -88,7 +86,7 @@ public class GameController : MonoBehaviour {
             }
             else
             {
-                double score = totalScore / weightTaken * 100;
+                double score = totalScore / weightTaken * 30;
 
                 if (score - 85f > 1e-9)
                 {
@@ -168,48 +166,36 @@ public class GameController : MonoBehaviour {
         {
             List<Task> tasks1 = new List<Task> {
 			    // judul tugas, bobot (%), start time (detik), end time (detik)
-			    new Task("Tugas 1 - DDP", 5, 0, 5),
-                new Task("Kuis 1 - DDP", 10, 30, 550),
-                new Task("UTS - DDP", 25, 60, 75),
-                new Task("Tugas 2 - DDP", 15, 78, 105),
-                new Task("Kuis 2  - DDP", 15, 105, 125),
-                new Task("UAS - DDP", 30, 130, 180)
+			    new Task("Tugas 1 - DDP", 5, 0, 20),
+                new Task("UTS - DDP", 7, 30, 60),
+                new Task("UAS - DDP", 18, 90, 165),
             };
 
             List<Task> tasks2 = new List<Task> {
-                new Task("Worksheet 1 - CAL", 5, 0, 30),
-                new Task("Kuis 1 - CAL", 10, 30, 55),
-                new Task("UTS - CAL", 30, 60, 75),
-                new Task("Worksheet 2 - CAL", 5, 75, 105),
-                new Task("Kuis 2  - CAL", 20, 105, 125),
-                new Task("UAS - CAL", 30, 130, 180)
+                new Task("Worksheet 1 - CAL", 6, 10, 30),
+                new Task("Kuis 1 - CAL", 8, 35, 70),
+                new Task("UTS - CAL", 8, 60, 120),
+                new Task("UAS - CAL", 8, 130, 170),
             };
 
             List<Task> tasks3 = new List<Task> {
-                new Task("Tugas - DISC", 10, 0, 50),
-                new Task("Ujian 1 - DISC", 15, 50, 100),
-                new Task("UTS - DISC", 20, 110, 140),
-                new Task("Ujian 2 - DISC", 15, 155, 210),
-                new Task("Ujian 3 - DISC", 15, 210, 250),
-                new Task("UAS - DISC", 25, 260, 300)
+                new Task("Tugas - DISC", 6, 0, 30),
+                new Task("Ujian 1 - DISC", 7, 20, 50),
+                new Task("UTS - DISC", 7, 70, 120),
+                new Task("Ujian 2 - DISC", 10, 140, 170),
             };
 
             List<Task> tasks4 = new List<Task> {
-                new Task("Worksheet 1 - ALG", 10, 0, 30),
-                new Task("Worksheet 2 - ALG", 10, 30, 60),
-                new Task("UTS - ALG", 25, 130, 150),
-                new Task("Worksheet 3 - ALG - DDP", 10, 75, 105),
-                new Task("Kuis - ALG", 15, 105, 125),
-                new Task("UAS - ALG", 30, 130, 180)
+                new Task("Worksheet 1 - ALG", 8, 0, 60),
+                new Task("Worksheet 2 - ALG", 8, 60, 120),
+                new Task("Final Project- ALG", 14, 130, 180),
             };
 
             List<Task> tasks5 = new List<Task> {
-                new Task("Praktikum 1 - PSD", 10, 0, 30),
-                new Task("Praktikum 2 - PSD", 10, 30, 60),
-                new Task("UTS - PSD", 20, 65, 75),
-                new Task("Praktikum 3 - PSD", 10, 75, 105),
-                new Task("Tugas Akhir  - PSD", 20, 105, 120),
-                new Task("UAS - PSD", 30, 130, 180)
+                new Task("Praktikum 1 - PSD", 5, 30, 50),
+                new Task("Praktikum 2 - PSD", 5, 60, 80),
+                new Task("UTS - PSD", 10, 80, 120),
+                new Task("Praktikum 3 - PSD", 10, 120, 160),
             };
 
             courseList = new List<Course> {

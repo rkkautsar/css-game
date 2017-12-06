@@ -424,7 +424,6 @@ RectTransform:
   m_LocalPosition: {x: 381, y: 159, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1040433547}
   - {fileID: 941467806}
   - {fileID: 1465408002}
   - {fileID: 347252326}
@@ -836,7 +835,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 284239420}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1654,7 +1653,7 @@ RectTransform:
   - {fileID: 540792909}
   - {fileID: 258443902}
   m_Father: {fileID: 284239420}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2675,7 +2674,7 @@ RectTransform:
   m_Children:
   - {fileID: 1177945835}
   m_Father: {fileID: 284239420}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2850,80 +2849,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5d7afb956a9760647bc215893b3042ea, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1040433546
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1040433547}
-  - component: {fileID: 1040433549}
-  - component: {fileID: 1040433548}
-  m_Layer: 5
-  m_Name: Timer Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1040433547
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1040433546}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000015258789, y: 140, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 284239420}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000015259, y: 140}
-  m_SizeDelta: {x: 107.26, y: 19.78}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1040433548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1040433546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 10
-    m_FontStyle: 0
-    m_BestFit: 1
-    m_MinSize: 0
-    m_MaxSize: 88
-    m_Alignment: 0
-    m_AlignByGeometry: 1
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: (( Timer Text ))
---- !u!222 &1040433549
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1040433546}
 --- !u!1001 &1047649882
 Prefab:
   m_ObjectHideFlags: 0
@@ -3264,7 +3189,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1177945834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.40499878, y: 0, z: 0}
+  m_LocalPosition: {x: 2.7799988, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 762912613}
@@ -3273,8 +3198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.405, y: -0.0000038146}
-  m_SizeDelta: {x: 111.69, y: 202}
+  m_AnchoredPosition: {x: 2.78, y: -0.0000038146}
+  m_SizeDelta: {x: 118.06, y: 202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1177945836
 MonoBehaviour:
@@ -3380,7 +3305,7 @@ RectTransform:
   m_Children:
   - {fileID: 930270518}
   m_Father: {fileID: 284239420}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3737,7 +3662,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a2f364c83cb4e10b94d4789fbd499f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerText: {fileID: 1040433548}
   IPText: {fileID: 347252327}
   activeTasks: []
   maxTimePerLevel: 20
@@ -4247,7 +4171,7 @@ Prefab:
         type: 2}
       propertyPath: timerText
       value: 
-      objectReference: {fileID: 1040433548}
+      objectReference: {fileID: 0}
     - target: {fileID: 114334362771281982, guid: 2ee56646f25c6bf4dade0bad39df7340,
         type: 2}
       propertyPath: IPText
