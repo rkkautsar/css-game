@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour {
     public int currentLevel = 1;
 	public int totalSKSLevel = 20;
 	public static double currentIP = 4;
+	public Slider timerUI;
 
 	// Use this for initialization
 	public void Start () {
@@ -28,7 +29,7 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timerText.text = "Time: " + Time.timeSinceLevelLoad.ToString();
-
+		timerUI.value = (maxTimePerLevel - Time.timeSinceLevelLoad) / maxTimePerLevel;
         if (Time.timeSinceLevelLoad > maxTimePerLevel)
         {
             levelEnded();
