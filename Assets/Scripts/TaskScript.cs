@@ -47,6 +47,7 @@ public class TaskScript : MonoBehaviour {
 				taskObj.GetComponent<Task> ().setValues (task.title, task.weight, task.startTime, task.endTime, taskObj.GetComponentInChildren<Slider> ());
 				taskObj.GetComponentInChildren <Text> ().text = task.title;
 				task.isVisible = true;
+				Destroy(taskObj, task.endTime-task.startTime);
 			}
 
 			if (time > task.endTime) {

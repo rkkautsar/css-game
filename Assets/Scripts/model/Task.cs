@@ -10,8 +10,8 @@ public class Task : MonoBehaviour
 	public float weight = 0;
 	public float startWeight;
 	public double score;
-	public double startTime;
-	public double endTime;
+	public float startTime;
+	public float endTime;
 	public double progress;
 	public bool isVisible = false;
 	public bool isStarted = false;
@@ -23,7 +23,7 @@ public class Task : MonoBehaviour
 
 	float speed = 1f;
 
-	public Task (string title_, float startWeight_, double startTime_, double endTime_)
+	public Task (string title_, float startWeight_, float startTime_, float endTime_)
 	{
 		title = title_;
 		weight = startWeight_;
@@ -38,7 +38,7 @@ public class Task : MonoBehaviour
 
 	}
 
-	public void setValues (string title_, float startWeight_, double startTime_, double endTime_, Slider slider_)
+	public void setValues (string title_, float startWeight_, float startTime_, float endTime_, Slider slider_)
 	{
 		title = title_;
 		startWeight = startWeight_;
