@@ -10,7 +10,7 @@ public class EndGameScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //Debug.Log("Haha");
-		IPText.text = "Your IP: " + AppData.currentIP;
+		IPText.text = "Your IP: " + AppData.currentIP.ToString("F2");
 	}
 	
 	// Update is called once per frame
