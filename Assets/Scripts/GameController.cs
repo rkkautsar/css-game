@@ -76,9 +76,10 @@ public class GameController : MonoBehaviour {
                     //Debug.Log(task.title + " >>>>> " + task.startWeight + " " + task.weight);
                     totalScore += (task.startWeight - task.weight);
                     weightTaken += task.startWeight;
+                    //Debug.Log(totalScore + " " + weightTaken);
                 }
             }
-            
+
             // if not a single task is end yet, assume it is 4
             if (weightTaken < 1e-9)
             {
@@ -86,7 +87,7 @@ public class GameController : MonoBehaviour {
             }
             else
             {
-                double score = totalScore / weightTaken * 30;
+                double score = totalScore / weightTaken * 100;
 
                 if (score - 85f > 1e-9)
                 {
