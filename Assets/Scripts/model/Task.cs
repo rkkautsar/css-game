@@ -26,7 +26,7 @@ public class Task : MonoBehaviour
 
 	IEnumerator countd = null;
 
-    float speed = 1f;
+    public float speed = 1f;
 
 	public Task (string title_, float startWeight_, float startTime_, float endTime_)
 	{

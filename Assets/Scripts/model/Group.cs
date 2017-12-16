@@ -16,6 +16,8 @@ public class Group : MonoBehaviour {
 
     public GameController gameControllerScript;
 
+	public TaskScript taskScript;
+
     public Group() {}
 
     public Group(int position_, float startTime_, float interval_, int prefabType_, Course course_, float incrementRate_)
@@ -41,6 +43,7 @@ public class Group : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		taskScript = (TaskScript) FindObjectOfType (typeof(TaskScript));
 	}
 	
 	// Update is called once per frame
@@ -92,18 +95,20 @@ public class Group : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
         float affectedIncrementRate = 0.0f;
-        if (gameControllerScript.activeTasks != null && course != null)
+		if (taskScript.taskGameObject != null && course != null)
         {
-            for (int i = 0; i < gameControllerScript.activeTasks.Count; i++)
-            {
-                Task currentTask = gameControllerScript.activeTasks[i];
+			for (int i = 0; i < taskScript.taskGameObject.Length; i++)
+           {
+				if (taskScript.taskGameObject [i] == null)
+					continue;
+				Task currentTask = taskScript.taskGameObject[i].GetComponent<Task>();
                 string taskTitle = currentTask.getTitle();
                 //Debug.Log(course.getCode() + " " + taskTitle);
 
                 if (taskTitle.Contains(course.getCode()))
                 {
                     affectedIncrementRate = incrementRate;
-                    gameControllerScript.activeTasks[i].updateSpeed(incrementRate);
+					currentTask.updateSpeed(incrementRate);
                 }
             }
         }
@@ -133,11 +138,14 @@ public class Group : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other) {
         // reset speed on all active tasks
-        if (gameControllerScript.activeTasks != null && course != null)
+		if (taskScript.taskGameObject != null && course != null)
         {
-            for (int i = 0; i < gameControllerScript.activeTasks.Count; i++)
+			for (int i = 0; i < taskScript.taskGameObject.Length; i++)
             {
-                Task currentTask = gameControllerScript.activeTasks[i];
+
+				if (taskScript.taskGameObject [i] == null)
+					continue;
+				Task currentTask = taskScript.taskGameObject[i].GetComponent<Task>();
                 string taskTitle = currentTask.getTitle();
 
                 if (taskTitle.Contains(course.getCode()))
