@@ -40,13 +40,23 @@ public class GroupScript : MonoBehaviour {
         int position = Random.Range(0, tablePositions.Length);
         float startTime = Random.Range(0, gameControllerScript.maxTimePerLevel);
 		float interval = Random.Range(intervalBoundary.minimum, intervalBoundary.maximum);
-        int prefabType = Random.Range(0, groupPrefabs.Length);
 
         // randomize affectedcourse
 
         int courseIndex = Random.Range(1, gameControllerScript.courseList.Count) - 1;
         Course affectedCourse = gameControllerScript.courseList[courseIndex];
+
         float incrementRate = Random.Range(-3.0f, 5.0f);
+
+		int prefabType;
+
+		if (incrementRate < 0) {
+			prefabType = Random.Range (7, 9);
+		} else if (affectedCourse.getCode () == "DDP" || affectedCourse.getCode () == "PSD") {
+			prefabType = Random.Range (0, 2);
+		} else {
+			prefabType = Random.Range (3, 6);
+		}
 
         // instantiate group
         this.groupInstances[index] = new Group(position, startTime, interval, prefabType, affectedCourse, incrementRate);
