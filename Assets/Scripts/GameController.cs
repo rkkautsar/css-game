@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour {
 		InvokeRepeating ("changeIP", 1f, 1f);
 
 	}
+
+	public Transform taskHolder;
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,6 +34,27 @@ public class GameController : MonoBehaviour {
             levelEnded();
 			//Debug.Log ("udah kelar oi");
         }
+
+		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+			if (taskHolder.childCount >= 1) {
+				taskHolder.GetChild (0).GetComponent<Task> ().OnClick ();
+			}
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha2)) {
+			if (taskHolder.childCount >= 2) {
+				taskHolder.GetChild (1).GetComponent<Task> ().OnClick ();
+			}
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha3)) {
+			if (taskHolder.childCount >= 3) {
+				taskHolder.GetChild (2).GetComponent<Task> ().OnClick ();
+			}
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha4)) {
+			if (taskHolder.childCount >= 4) {
+				taskHolder.GetChild (3).GetComponent<Task> ().OnClick ();
+			}
+		}
 	}
 
 	void changeIP() {
