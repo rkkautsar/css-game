@@ -32,6 +32,11 @@ public class AppController : MonoBehaviour {
         SceneManager.LoadScene("MenuScene");
     }
 
+	public void loadHighscoreScene()
+	{
+		SceneManager.LoadScene("HighScoreScene");
+	}
+
 	public void loadTutorialScene()
 	{
 		SceneManager.LoadScene("TutorialScene");
