@@ -20,6 +20,10 @@ public class Task : MonoBehaviour
 	public bool isFinished = false;
     public GameController gameControllerScript;
 
+	public Sprite original;
+	public Sprite grayscale;
+	Image image;
+
 	IEnumerator countd = null;
 
     float speed = 1f;
@@ -67,7 +71,7 @@ public class Task : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-
+		image = GetComponent<Image> ();
 	}
 
 	// Update is called once per frame
@@ -125,12 +129,14 @@ public class Task : MonoBehaviour
 	{
 		countd = Countdown ();
 		StartCoroutine (countd);
+		image.sprite = original;
 	}
 
 	public void StopCountdown ()
 	{
 		if (countd != null)
 			StopCoroutine (countd);
+		image.sprite = grayscale;
 	}
 
 }
