@@ -130,7 +130,12 @@ public class Group : MonoBehaviour {
         StartBlinking();
 
         // start dialog animation
-        GameObject dialog = GameObject.Find("Dialog");
+		GameObject dialog;
+		if (affectedIncrementRate > 0) {
+			dialog = GameObject.Find ("Dialog");
+		} else {
+			dialog = GameObject.Find ("DialogBad");
+		}
 
         dialog.transform.localScale = new Vector3(0.1819f, 0.1879f, 1);
         dialog.transform.position = new Vector3(this.transform.position.x + 1, this.transform.position.y + 3, -1);
@@ -159,6 +164,7 @@ public class Group : MonoBehaviour {
 
         // hide dialog animation
         GameObject.Find("Dialog").transform.localScale = new Vector3(0, 0, 0);
+		GameObject.Find("DialogBad").transform.localScale = new Vector3(0, 0, 0);
 	}
 
     IEnumerator Blink()
