@@ -9,13 +9,13 @@ public class HighScoreScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for (int i = 1; i <= numOfScores; i++)
-        {
-            if (PlayerPrefs.HasKey(getPrefKey(i)))
-            {
-                PlayerPrefs.SetString(getPrefKey(i), "COMP 0.0");
-            }
-        }
+//		for (int i = 1; i <= numOfScores; i++)
+//        {
+//            if (PlayerPrefs.HasKey(getPrefKey(i)))
+//            {
+//                PlayerPrefs.SetString(getPrefKey(i), "COMP 0.0");
+//            }
+//        }
 	}
 	
 	// Update is called once per frame
@@ -27,6 +27,7 @@ public class HighScoreScript : MonoBehaviour {
 		List<string> highscore = new List<string> ();
 		for (int i = 1; i <= numOfScores; i++) {
 			highscore.Add (PlayerPrefs.GetString (getPrefKey (i)));
+			print ("--- " + getPrefKey(i) + " " + PlayerPrefs.GetString (getPrefKey (i)));
 		}
 		return highscore;
 	}
@@ -39,18 +40,20 @@ public class HighScoreScript : MonoBehaviour {
     public static void updateHighScore(string name, double score)
     {
         string newHighScore = name + " " + score;
+		print ("asdasdasd " + newHighScore);
         for (int i = 1; i <= numOfScores; i++)
         {
             string currentHighScore = PlayerPrefs.GetString(getPrefKey(i));
-			print (currentHighScore);
+//			print ("ASD " + currentHighScore);
 			if (currentHighScore.Length < 2)
 				currentHighScore = "COMP 0.0";
 
             float newScore = float.Parse(newHighScore.Split(' ')[1]);
-            float currentScore = float.Parse(currentHighScore.Split(' ')[1]);
+          	float currentScore = float.Parse(currentHighScore.Split(' ')[1]);
 
 			if (newScore - currentScore > 1e-9) {
 				PlayerPrefs.SetString (getPrefKey (i), newHighScore);
+				print ("harusnya berubah " + getPrefKey (i) + ' ' + newHighScore + ' ' + PlayerPrefs.GetString (getPrefKey (i)));
 
 				// to update next high score
 				newHighScore = currentHighScore;

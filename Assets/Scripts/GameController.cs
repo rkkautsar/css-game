@@ -165,7 +165,6 @@ public class GameController : MonoBehaviour {
     public void levelEnded()
     {
         double ip = getIP();
-        Debug.Log(ip);
         AppData.currentIP = ip;
         // go to other scene
 
